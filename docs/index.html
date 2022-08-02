@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 2022</title>
+  <title>AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 ２０２２</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
@@ -23,25 +23,63 @@
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid=""
                   id="docs"
-                  title="AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 2022"
+                  title="AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 ２０２２"
                   environment="web"
-                  feedback-link="https://github.com/otanikohei/AWS-StepFunctions—Workflow-Handson">
+                  feedback-link="https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings">
     
       <google-codelab-step label="はじめに" duration="5">
-        <p>本ハンズオンは以下のような方をターゲットにしています。</p>
+        <p class="image-container"><img alt="扉絵" src="img/bd9c5432d255f26d.png"></p>
+<p>本ハンズオンは以下のような方をターゲットにしています。</p>
 <ul>
 <li>AWS アカウントを契約して使いたいけど、具体的な手順が分からない</li>
 <li>手順は知っているけど、操作方法が分からなくなったときに聴ける環境がないと不安</li>
 <li>課金システムが分からない</li>
 <li>高額請求が怖い</li>
 </ul>
+<h2 is-upgraded>前提や注意点</h2>
+<aside class="warning"><p>アカウント作成の注意点についてはできる限り配慮していますが、保証・補償をする物ではございません。 </p>
+</aside>
+<aside class="warning"><p>アカウント作成した後、運用次第では費用が発生する可能性があります。</p>
+</aside>
+<h2 is-upgraded>ご用意いただきたいもの</h2>
+<p class="image-container"><img alt="マストアイテム" src="img/f374b953750f212b.png"></p>
+<ul>
+<li>メールアドレス</li>
+<li>クレジットカード／デビットカード</li>
+<li>SMS (ショートメッセージサービス) が届く携帯電話やスマートホンなどの機器</li>
+<li>Google Authenticator</li>
+</ul>
+<h3 is-upgraded>Google Authenticator について</h3>
+<p class="image-container"><img alt="Google Authenticator" src="img/bc75d9962e237e3f.webp"></p>
+<p>本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、<strong>多要素認証（MFA）</strong> を必須とさせていただいております。</p>
+<p class="image-container"><img alt="ハッキング" src="img/365c8f06462ccb5f.png"></p>
+<p>AWS アカウントを契約すると、登録したメールアドレスが <strong>ルートユーザー</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、</p>
+<p>各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
+<ul>
+<li>Android の方：<a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US" target="_blank">Google Play</a></li>
+<li>iPhone の方： <a href="https://apps.apple.com/jp/app/google-authenticator/id388497605" target="_blank">App Store</a></li>
+</ul>
+<aside class="warning"><p>ハンズオン終了後も、Google Authenticator は削除しないでください！ AWS アカウントにログインができなくなります。 </p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="AWS の無料利用枠について" duration="0">
+        <p>AWS には無料利用枠があります。一部のサービスが一定額まで無料であったり、期間限定で無料で体験できます。</p>
+<p><a href="https://aws.amazon.com/jp/free" target="_blank">https://aws.amazon.com/jp/free</a></p>
+<p>以下は、無料枠の一部ですが有効期限が 12 ヶ月のものが多いので使えるうちに色々試してしまいましょう！</p>
+<p class="image-container"><img alt="無料枠の例" src="img/58921d54c1f33961.png"></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="AWS アカウント作成の流れ" duration="0">
-        <p>以下リンクをクリックすると、AWS アカウントを作る方法が</p>
+        <p>Amazon Web Service (AWS) を利用するには、AWS アカウントの契約が必要です。</p>
+<p>以下リンクをクリックすると、AWS アカウントを作る方法が画面のスクリーンキャプチャー付きで紹介されています。<br> 本手順では、この手順にプラスして、MFA の設定など AWS を扱う上で欠かせないセキュリティ設定なども解説します。</p>
 <p><a href="https://aws.amazon.com/jp/register-flow/" target="_blank">https://aws.amazon.com/jp/register-flow/</a></p>
+<aside class="special"><p>このハンズオンは EC2 インスタンスのログイン操作が目的ではいため、必要最低限の設定にてインスタンスを起動しています。</p>
+</aside>
 
 
       </google-codelab-step>
