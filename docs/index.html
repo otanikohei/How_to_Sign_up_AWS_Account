@@ -52,7 +52,7 @@
 <h3 is-upgraded>Google Authenticator について</h3>
 <p class="image-container"><img alt="Google Authenticator" src="img/bc75d9962e237e3f.webp"></p>
 <p>本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、<strong>多要素認証（MFA）</strong> を必須とさせていただいております。</p>
-<p class="image-container"><img alt="ハッキング" src="img/365c8f06462ccb5f.png"></p>
+<p class="image-container"><img alt="ハッキング" src="img/eb1167aa56f7c6e7.png"></p>
 <p>AWS アカウントを契約すると、登録したメールアドレスが <strong>ルートユーザー</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、</p>
 <p>各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
 <ul>
@@ -60,6 +60,8 @@
 <li>iPhone の方： <a href="https://apps.apple.com/jp/app/google-authenticator/id388497605" target="_blank">App Store</a></li>
 </ul>
 <aside class="warning"><p>ハンズオン終了後も、Google Authenticator は削除しないでください！ AWS アカウントにログインができなくなります。 </p>
+</aside>
+<aside class="special"><p>Authy などでも対応可能ですが、本ハンズオンでは環境を統一するために Google Authenticator にてご案内します。</p>
 </aside>
 
 
@@ -76,10 +78,47 @@
     
       <google-codelab-step label="AWS アカウント作成の流れ" duration="0">
         <p>Amazon Web Service (AWS) を利用するには、AWS アカウントの契約が必要です。</p>
-<p>以下リンクをクリックすると、AWS アカウントを作る方法が画面のスクリーンキャプチャー付きで紹介されています。<br> 本手順では、この手順にプラスして、MFA の設定など AWS を扱う上で欠かせないセキュリティ設定なども解説します。</p>
+<p>以下リンクをクリックすると、AWS アカウントを作る方法が画面のスクリーンキャプチャー付きで紹介されています。<br> まずは、この手順に沿ってアカウントを作成してください。</p>
 <p><a href="https://aws.amazon.com/jp/register-flow/" target="_blank">https://aws.amazon.com/jp/register-flow/</a></p>
-<aside class="special"><p>このハンズオンは EC2 インスタンスのログイン操作が目的ではいため、必要最低限の設定にてインスタンスを起動しています。</p>
-</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="サインイン" duration="0">
+        <p>アカウントができたらサインインしてみましょう。<br> 以下 URL からサインインできます。</p>
+<p><a href="https://signin.aws.amazon.com/console" target="_blank">https://signin.aws.amazon.com/console</a></p>
+<p class="image-container"><img alt="サインイン画面" src="img/e7529d373baae86d.png"></p>
+<p>上記画面がサインイン画面が表示されたら、</p>
+<p class="image-container"><img alt="サインイン画面" src="img/2042febc3baeb9ff.png"></p>
+<p>「ルートユーザーの E メールを使用したサインイン」のリンクをクリックしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/e13ee0adca4bfab4.png"></p>
+<p>上記画面に遷移しますので、[ <strong>○ ルートユーザー</strong> ] が選択されていることを確認し、メールアドレスを入力して、[ <strong>次へ</strong> ] をクリックしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/4addfbab5e104d3e.png"></p>
+<p>先ほど設定したパスワードでサインインしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/45f4f24f8d787e82.png"></p>
+<p>上記画面にサインインされたら、成功です。</p>
+<p>他のハンズオンで「コンソール画面を開いて」と言われた場合は、この画面 またはこの画面から遷移する AWS サービスの画面を意味しています。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="セキュリティ強化" duration="0">
+        <ul>
+<li>アカウントの神様的存在であるルートユーザーを盗られると大変</li>
+<li>メールアドレス、パスワード以外にもログイン時に必要な情報を追加すべき</li>
+</ul>
+<p class="image-container"><img alt="パスワード入力" src="img/8082551887818172.png"></p>
+<p>アカウント名をクリックして、[ <strong>セキュリティ認証情報</strong> ] をクリックします。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/c7ae85f8724687bf.png"></p>
+<p>[ <strong>多要素認証 (MDA)</strong> ] にあります [ <strong>MFA の有効化</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/f7c0d4a393db69f0.png"></p>
+<p>[ <strong>仮想 MFA デバイス</strong> ] が選択されていることを確認して、[ <strong>続行</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/142d3233004ec279.png"></p>
+<p>[ <strong>QA コードの表示</strong> ] というリンクをクリックして、ください。QR コードが表示されますので、google Authenticator で読み込んでください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/c298cd715174479d.png"></p>
+<p>Google Authenticator から発行されたコードを 2 つ入力して、[ <strong>MFA の割り当て</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/4a0928d516d2a3a.png"></p>
+<p>上記メッセージが表示されたら成功です。</p>
 
 
       </google-codelab-step>
