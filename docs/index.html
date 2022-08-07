@@ -28,13 +28,12 @@
                   feedback-link="https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings">
     
       <google-codelab-step label="はじめに" duration="5">
-        <p class="image-container"><img alt="扉絵" src="img/bd9c5432d255f26d.png"></p>
+        <p class="image-container"><img alt="扉絵" src="img/4deb1ace97f48655.gif"></p>
 <p>本ハンズオンは以下のような方をターゲットにしています。</p>
 <ul>
 <li>AWS アカウントを契約して使いたいけど、具体的な手順が分からない</li>
-<li>手順は知っているけど、操作方法が分からなくなったときに聴ける環境がないと不安</li>
-<li>課金システムが分からない</li>
-<li>高額請求が怖い</li>
+<li>手順は知っているけど、操作方法が分からなくなったときに質問できないのは不安</li>
+<li>課金システムが分からない、高額請求が怖い</li>
 </ul>
 <h2 is-upgraded>前提や注意点</h2>
 <aside class="warning"><p>アカウント作成の注意点についてはできる限り配慮していますが、保証・補償をする物ではございません。 </p>
@@ -42,27 +41,13 @@
 <aside class="warning"><p>アカウント作成した後、運用次第では費用が発生する可能性があります。</p>
 </aside>
 <h2 is-upgraded>ご用意いただきたいもの</h2>
-<p class="image-container"><img alt="マストアイテム" src="img/f374b953750f212b.png"></p>
+<p class="image-container"><img alt="マストアイテム" src="img/d837ced0e1b9acae.png"></p>
 <ul>
 <li>メールアドレス</li>
 <li>クレジットカード／デビットカード</li>
 <li>SMS (ショートメッセージサービス) が届く携帯電話やスマートホンなどの機器</li>
 <li>Google Authenticator</li>
 </ul>
-<h3 is-upgraded>Google Authenticator について</h3>
-<p class="image-container"><img alt="Google Authenticator" src="img/bc75d9962e237e3f.webp"></p>
-<p>本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、<strong>多要素認証（MFA）</strong> を必須とさせていただいております。</p>
-<p class="image-container"><img alt="ハッキング" src="img/eb1167aa56f7c6e7.png"></p>
-<p>AWS アカウントを契約すると、登録したメールアドレスが <strong>ルートユーザー</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、</p>
-<p>各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
-<ul>
-<li>Android の方：<a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US" target="_blank">Google Play</a></li>
-<li>iPhone の方： <a href="https://apps.apple.com/jp/app/google-authenticator/id388497605" target="_blank">App Store</a></li>
-</ul>
-<aside class="warning"><p>ハンズオン終了後も、Google Authenticator は削除しないでください！ AWS アカウントにログインができなくなります。 </p>
-</aside>
-<aside class="special"><p>Authy などでも対応可能ですが、本ハンズオンでは環境を統一するために Google Authenticator にてご案内します。</p>
-</aside>
 
 
       </google-codelab-step>
@@ -103,18 +88,39 @@
       </google-codelab-step>
     
       <google-codelab-step label="セキュリティ強化" duration="0">
-        <ul>
+        <p>AWS アカウントを契約した際のメールアドレスが、<strong>ルートアカウント</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、アカウント内の神様とも言える権限があります。</p>
+<p class="image-container"><img alt="ハッキング" src="img/ed71cbdffb95dd08.png"></p>
+<p>本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、<strong>多要素認証（MFA）</strong> を必須とさせていただいております。</p>
+<p>各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
+<h3 is-upgraded>Google Authenticator</h3>
+<p class="image-container"><img alt="Google Authenticator" src="img/bc75d9962e237e3f.webp"></p>
+<ul>
+<li>Android の方：<a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US" target="_blank">Google Play</a></li>
+<li>iPhone の方： <a href="https://apps.apple.com/jp/app/google-authenticator/id388497605" target="_blank">App Store</a></li>
+</ul>
+<aside class="warning"><p>ハンズオン終了後も、Google Authenticator は削除しないでください！ AWS アカウントにログインができなくなります。 </p>
+</aside>
+<aside class="special"><p>Microsoft Authenticator や Authy などでも対応可能ですが、本ハンズオンでは環境を統一するために Google Authenticator にてご案内します。</p>
+</aside>
+<h2 is-upgraded>二段階認証の設定</h2>
+<p>まとめますと、二段階認証は以下のために設定をします。</p>
+<ul>
 <li>アカウントの神様的存在であるルートユーザーを盗られると大変</li>
 <li>メールアドレス、パスワード以外にもログイン時に必要な情報を追加すべき</li>
 </ul>
+<p>AWS マネジメントコンソールを操作して、二段階認証を設定していきます。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/8082551887818172.png"></p>
 <p>アカウント名をクリックして、[ <strong>セキュリティ認証情報</strong> ] をクリックします。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/c7ae85f8724687bf.png"></p>
-<p>[ <strong>多要素認証 (MDA)</strong> ] にあります [ <strong>MFA の有効化</strong> ] ボタンをクリックしてください。</p>
+<p><strong>セキュリティ認証情報</strong> の画面に遷移するので、[ <strong>多要素認証 (MDA)</strong> ] にあります [ <strong>MFA の有効化</strong> ] ボタンをクリックしてください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/f7c0d4a393db69f0.png"></p>
-<p>[ <strong>仮想 MFA デバイス</strong> ] が選択されていることを確認して、[ <strong>続行</strong> ] ボタンをクリックします。</p>
+<p><strong>MFA デバイスの管理</strong> のダイヤログ画面が表示されるので、[ <strong>仮想 MFA デバイス</strong> ] が選択されていることを確認して、[ <strong>続行</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/142d3233004ec279.png"></p>
-<p>[ <strong>QA コードの表示</strong> ] というリンクをクリックして、ください。QR コードが表示されますので、google Authenticator で読み込んでください。</p>
+<p><strong>MFA デバイスの設定</strong> の画面に遷移するので、[ <strong>QA コードの表示</strong> ] というリンクをクリックしてください。<br> QR コードが表示されます。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/b2d36986a135b6c3.png"></p>
+<p>Google Authenticator アプリを開き、で読み込んでください。右下の [+] アイコンをタップして、</p>
+<p class="image-container"><img alt="パスワード入力" src="img/47789886e2dd718e.png"></p>
+<p>[QR コードをスキャン] をタップ。画面の QR コードを読み込んでください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/c298cd715174479d.png"></p>
 <p>Google Authenticator から発行されたコードを 2 つ入力して、[ <strong>MFA の割り当て</strong> ] ボタンをクリックしてください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/4a0928d516d2a3a.png"></p>

@@ -10,14 +10,13 @@ feedback link: https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings
 ## はじめに
 Duration: 0:05:00
 
-![扉絵](./images/01_title_image.png)
+![扉絵](./images/01_title_image.gif)
 
 本ハンズオンは以下のような方をターゲットにしています。
 
 - AWS アカウントを契約して使いたいけど、具体的な手順が分からない
-- 手順は知っているけど、操作方法が分からなくなったときに聴ける環境がないと不安
-- 課金システムが分からない
-- 高額請求が怖い
+- 手順は知っているけど、操作方法が分からなくなったときに質問できないのは不安
+- 課金システムが分からない、高額請求が怖い
 
 ### 前提や注意点
 
@@ -33,28 +32,6 @@ Duration: 0:05:00
 - クレジットカード／デビットカード
 - SMS (ショートメッセージサービス) が届く携帯電話やスマートホンなどの機器
 - Google Authenticator
-
-#### Google Authenticator について
-
-![Google Authenticator](./images/03_google_authenticator_icon.webp)
-
-本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、**多要素認証（MFA）** を必須とさせていただいております。  
-
-![ハッキング](./images/05_hack.png)
-
-AWS アカウントを契約すると、登録したメールアドレスが **ルートユーザー** になります。  
-ルートユーザーはアカウント内の全てのアクションを行うことができるので、
-
-各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。
-
-- Android の方：[Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US)  
-- iPhone の方： [App Store](https://apps.apple.com/jp/app/google-authenticator/id388497605)
-
-<aside class="negative">ハンズオン終了後も、Google Authenticator は削除しないでください！
-AWS アカウントにログインができなくなります。 </aside>
-
-<aside class="positive">Authy などでも対応可能ですが、本ハンズオンでは環境を統一するために Google Authenticator にてご案内します。</aside>
-
 
 ## AWS の無料利用枠について
 
@@ -106,8 +83,35 @@ Amazon Web Service (AWS) を利用するには、AWS アカウントの契約が
 
 ## セキュリティ強化
 
+AWS アカウントを契約した際のメールアドレスが、**ルートアカウント** になります。  
+ルートユーザーはアカウント内の全てのアクションを行うことができるので、アカウント内の神様とも言える権限があります。  
+
+![ハッキング](./images/05_hack.png)
+
+本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、**多要素認証（MFA）** を必須とさせていただいております。  
+
+各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。
+
+#### Google Authenticator
+![Google Authenticator](./images/03_google_authenticator_icon.webp)
+
+- Android の方：[Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US)  
+- iPhone の方： [App Store](https://apps.apple.com/jp/app/google-authenticator/id388497605)
+
+<aside class="negative">ハンズオン終了後も、Google Authenticator は削除しないでください！
+AWS アカウントにログインができなくなります。 </aside>
+
+<aside class="positive">Microsoft Authenticator や Authy などでも対応可能ですが、本ハンズオンでは環境を統一するために Google Authenticator にてご案内します。</aside>
+
+
+### 二段階認証の設定
+
+まとめますと、二段階認証は以下のために設定をします。
+
 - アカウントの神様的存在であるルートユーザーを盗られると大変
 - メールアドレス、パスワード以外にもログイン時に必要な情報を追加すべき
+
+AWS マネジメントコンソールを操作して、二段階認証を設定していきます。
 
 ![パスワード入力](./images/11_security.png)
 
@@ -115,15 +119,24 @@ Amazon Web Service (AWS) を利用するには、AWS アカウントの契約が
 
 ![パスワード入力](./images/12_mfa.png)
 
-[ **多要素認証 (MDA)** ] にあります [ **MFA の有効化** ] ボタンをクリックしてください。
+**セキュリティ認証情報** の画面に遷移するので、[ **多要素認証 (MDA)** ] にあります [ **MFA の有効化** ] ボタンをクリックしてください。
 
 ![パスワード入力](./images/13_virtual_mfa_device.png)
 
-[ **仮想 MFA デバイス** ] が選択されていることを確認して、[ **続行** ] ボタンをクリックします。
+**MFA デバイスの管理** のダイヤログ画面が表示されるので、[ **仮想 MFA デバイス** ] が選択されていることを確認して、[ **続行** ] ボタンをクリックします。
 
 ![パスワード入力](./images/14_image_click.png)
 
-[ **QA コードの表示** ] というリンクをクリックして、ください。QR コードが表示されますので、google Authenticator で読み込んでください。
+**MFA デバイスの設定** の画面に遷移するので、[ **QA コードの表示** ] というリンクをクリックしてください。  
+QR コードが表示されます。
+
+![パスワード入力](./images/17_iphone_mfa_read.png)
+
+Google Authenticator アプリを開き、で読み込んでください。右下の [+] アイコンをタップして、
+
+![パスワード入力](./images/18_display_qr_code.png)
+
+[QR コードをスキャン] をタップ。画面の QR コードを読み込んでください。
 
 ![パスワード入力](./images/15_code_input.png)
 
