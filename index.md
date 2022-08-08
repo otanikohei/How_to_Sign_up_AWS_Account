@@ -10,7 +10,7 @@ feedback link: https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings
 ## はじめに
 Duration: 0:05:00
 
-![扉絵](./images/01_title_image.png)
+![扉絵](./images/01_title_image.gif)
 
 本ハンズオンは以下のような方をターゲットにしています。
 
@@ -196,6 +196,8 @@ AWS マネジメントコンソールでの操作を終えたらサインアウ�
 
 ## オプション 1 AWS CloudTrail
 
+![AWS CloudTrail](./images/90_AWS_CloudTrail.png)
+
 ### CloudTrail の仕組み
 
 AWS の各種サービスは「マネージメントコンソール」、「AWS CLI」、「SDK」、「他AWSサービス」から操作ができますが、ほとんどは API エンドポイントへアクセスします。
@@ -229,9 +231,12 @@ https://aws.amazon.com/jp/cloudtrail/pricing/
 
 ## オプション 2 Budgets の設定
 
+![AWS CloudTrail](./images/91_AWS_Budgets.png)
+
 ルートユーザーでログインすることで利用可能です。
 
 
 ## オプション 3 Cost Explorer の設定
 
+![AWS CloudTrail](./images/93_AWS_Cost_Explorer.png)
 
