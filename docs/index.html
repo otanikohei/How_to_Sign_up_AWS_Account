@@ -87,6 +87,23 @@
 
       </google-codelab-step>
     
+      <google-codelab-step label="マネジメントコンソールの構成" duration="0">
+        <p>マネジメントコンソールの画面の構成について簡単に説明します。</p>
+<p class="image-container"><img alt="AWS マネジメントコンソールの構成" src="img/164db95dbe0a0eff.png"></p>
+<ol type="1">
+<li>左上の AWS のロゴをクリックすると、トップページが表示されます。<br><img alt="AWS マネジメントコンソールの構成" src="img/73772a0488748600.png"></li>
+<li>サービスをクリックすると、サービスの一覧が表示されます。<br><img alt="AWS マネジメントコンソールの構成" src="img/886ea956fb3f904e.gif"></li>
+<li>テキストボックスにキーワードを入力すると候補が表示されます。例えば、api と入力すると、API Gateway が一番に表示され、次候補に API を記録する CloudTrail が表示されます。 <img alt="AWS マネジメントコンソールの構成" src="img/9d564ddc8f4b5deb.png"></li>
+<li>CloudShell のアイコンです。本ハンズオンでは取り上げませんが、AWS CLI を実行できます。 <img alt="AWS マネジメントコンソールの構成" src="img/becc394c244b2c0e.png"></li>
+<li>パーソナルヘルスダッシュボードです。メンテナンスのお知らせや障害などが通知されます。 <img alt="AWS マネジメントコンソールの構成" src="img/e9a0d1e0fc0ecbc2.png"></li>
+<li>サポートセンター へのリンクや、AWS IQ というエキスパートとコンタクトを取るためのツール、re:Post という新しいフォーラムなどにアクセスができます。 <img alt="AWS マネジメントコンソールの構成" src="img/31e844f9a3e8e807.png"></li>
+<li>リージョンを選択できます。 <img alt="AWS マネジメントコンソールの構成" src="img/9857c5367aee4d13.png"></li>
+<li>アカウント名をクリックすると、請求情報やセキュリティ情報、アカウント情報にアクセスできます。 <img alt="AWS マネジメントコンソールの構成" src="img/26fed5d4af511042.png"></li>
+</ol>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="セキュリティ強化 - MFA" duration="0">
         <p>AWS アカウントを契約した際のメールアドレスが、<strong>ルートアカウント</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、アカウント内の神様とも言える権限があります。</p>
 <p class="image-container"><img alt="ハッキング" src="img/4e74a8c72b4b6a45.png"></p>
@@ -136,13 +153,26 @@
 <p>先ほど MFA を設定したルートユーザーはアカウントの神様的存在ですので、普段は使わないことがベストプラクティスとして推奨されています。<br> 普段使うユーザーは IAM というサービスから作成できます。</p>
 <p>IAM ユーザーも盗られると権限によっては大きな被害を受けますので、MFA を設定してください。</p>
 <h2 is-upgraded>AWS IAM とは</h2>
-<p>AWS Identity and Access Management (IAM) は、誰がどのサービスやリソースに、どのような条件でアクセスできるかを指定することができ、誰がどのような操作を行ったか証跡を取ることにも貢献します。</p>
+<p class="image-container"><img alt="IAM" src="img/13e48a597f9c9fc4.png"></p>
+<p>AWS Identity and Access Management (IAM) は、誰がどのサービスやリソースに、どのような条件でアクセスできるかを指定することができる権限コントロールのためのサービスです。<br> 誰がどのような操作を行ったか証跡を取ることにも貢献します。</p>
 <p>IAM には、大きく分けて 4 つの機能があります。</p>
-<h3 is-upgraded>グループ</h3>
-<p>ユーザーをまとめるための機能です。</p>
-<h3 is-upgraded>ユーザー</h3>
-<h3 is-upgraded>ロール</h3>
-<h3 is-upgraded>ポリシー</h3>
+<h3 is-upgraded><strong>グループ</strong></h3>
+<p>ユーザーをとりまとめるための機能です。<br> 会社で例えると、部、課、チームのような概念です。</p>
+<h3 is-upgraded><strong>ユーザー</strong></h3>
+<p>AWS を利用するユーザーを管理するための機能です。<br> アプリケーションに操作を委ねるアクセスキーも発行できます。<br> 会社で例えるなら社員や社員証といったところです。</p>
+<h3 is-upgraded><strong>ロール</strong></h3>
+<p>サーバーやプログラムに割り当てる権限情報です。<br> 会社で例えると、ID カードのようなものでしょうか。</p>
+<h3 is-upgraded><strong>ポリシー</strong></h3>
+<p>上記、グループ、ユーザー、ロールに付与する具体的な権限の内訳です。<br> 操作を許可したり、禁止したりできます。</p>
+<h3 is-upgraded><strong>関係性</strong></h3>
+<p class="image-container"><img alt="パスワード入力" src="img/2b754705c8d940aa.png"></p>
+<ol type="1">
+<li>ポリシー A はユーザー A にのみ適用されます。</li>
+<li>ポリシー B、C、D は、ユーザー A とユーザー B が含まれるグループに適用されます。</li>
+<li>ポリシー E は、ロールにアタッチして、EC2 インスタンスにアタッチするとインスタンスにポリシー E の権限が付与できます。</li>
+</ol>
+<h3 is-upgraded>IAM ユーザーを作成する</h3>
+<p>それでは、Administrator の権限を持つ IAM ユーザーを作成してみましょう。</p>
 
 
       </google-codelab-step>
