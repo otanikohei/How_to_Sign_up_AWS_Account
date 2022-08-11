@@ -31,7 +31,7 @@
         <p class="image-container"><img alt="扉絵" src="img/c3b1ad667840206d.gif"></p>
 <p>本ハンズオンは以下のような方をターゲットにしています。</p>
 <ul>
-<li>AWS アカウントを契約して使いたいけど、具体的な手順が分からない</li>
+<li>AWS アカウントを契約して使いたいけど、具体的な手順や詳細が分からない</li>
 <li>手順は知っているけど、操作方法が分からなくなったときに質問できないのは不安</li>
 <li>課金システムが分からない、高額請求が怖い</li>
 </ul>
@@ -72,17 +72,17 @@
       <google-codelab-step label="サインイン" duration="0">
         <p>アカウントができたらサインインしてみましょう。<br> 以下 URL からサインインできます。</p>
 <p><a href="https://signin.aws.amazon.com/console" target="_blank">https://signin.aws.amazon.com/console</a></p>
+<p>以下の画面がサインイン画面が表示されたら、</p>
 <p class="image-container"><img alt="サインイン画面" src="img/e7529d373baae86d.png"></p>
-<p>上記画面がサインイン画面が表示されたら、</p>
-<p class="image-container"><img alt="サインイン画面" src="img/2042febc3baeb9ff.png"></p>
 <p>「ルートユーザーの E メールを使用したサインイン」のリンクをクリックしてください。</p>
+<p class="image-container"><img alt="サインイン画面" src="img/2042febc3baeb9ff.png"></p>
+<p>以下の画面に遷移しますので、[ <strong>○ ルートユーザー</strong> ] が選択されていることを確認し、<strong>ルートユーザーの E メールアドレス</strong> にメールアドレスを入力して、[ <strong>次へ</strong> ] ボタンをクリックしてください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/e13ee0adca4bfab4.png"></p>
-<p>上記画面に遷移しますので、[ <strong>○ ルートユーザー</strong> ] が選択されていることを確認し、メールアドレスを入力して、[ <strong>次へ</strong> ] をクリックしてください。</p>
+<p>パスワードを入力する画面に遷移しますので、先ほど設定したパスワードでサインインしてください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/4addfbab5e104d3e.png"></p>
-<p>先ほど設定したパスワードでサインインしてください。</p>
+<p>以下の画面が表示されたらサインイン成功です。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/45f4f24f8d787e82.png"></p>
-<p>上記画面にサインインされたら、成功です。</p>
-<p>他のハンズオンで「コンソール画面を開いて」と言われた場合は、この画面 またはこの画面から遷移する AWS サービスの画面を意味しています。</p>
+<p>今後、他のハンズオンで「コンソール画面を開いて」と言われた場合は、この画面、またはこの画面から遷移する AWS サービスの画面のことだ、とご認識ください。</p>
 
 
       </google-codelab-step>
@@ -108,8 +108,9 @@
         <p>AWS アカウントを契約した際のメールアドレスが、<strong>ルートアカウント</strong> になります。<br> ルートユーザーはアカウント内の全てのアクションを行うことができるので、アカウント内の神様とも言える権限があります。</p>
 <p class="image-container"><img alt="ハッキング" src="img/4e74a8c72b4b6a45.png"></p>
 <p>本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、<strong>多要素認証（MFA）</strong> を必須とさせていただいております。</p>
+<p>ユーザー名とパスワードに加えて、一時的な認証コードである MFA を合わせることでセキュリティを大幅に強化できます。</p>
 <p class="image-container"><img alt="ハッキング" src="img/6d96b93d915a21d7.png"></p>
-<p>ユーザー名とパスワードに加えて、一時的な認証コードである MFA を合わせることでセキュリティを大幅に強化できます。 各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
+<p>各自、App Store などで 「Google Authenticator」 で検索、ダウンロードをお願いします。</p>
 <h3 is-upgraded>Google Authenticator</h3>
 <p class="image-container"><img alt="Google Authenticator" src="img/bc75d9962e237e3f.webp"></p>
 <ul>
@@ -138,11 +139,14 @@
 <p class="image-container"><img alt="パスワード入力" src="img/b2d36986a135b6c3.png"></p>
 <p>Google Authenticator アプリを開き、で読み込んでください。右下の [+] アイコンをタップして、</p>
 <p class="image-container"><img alt="パスワード入力" src="img/47789886e2dd718e.png"></p>
-<p>[QR コードをスキャン] をタップして、QR コードを読み込んでください。</p>
-<p class="image-container"><img alt="パスワード入力" src="img/c298cd715174479d.png"></p>
-<p>Google Authenticator から発行されたコードを 2 つ入力して、[ <strong>MFA の割り当て</strong> ] ボタンをクリックしてください。</p>
+<p>[QR コードをスキャン] をタップして、スマホで QR コードを読み込んでください。</p>
+<p class="image-container"><img alt="スマホで QR コードを読み込む" src="img/17db429bccff211c.png"></p>
+<p>Google Authenticator から発行されたコードを 2 つ入力して、[ <strong>MFA の割り当て</strong> ] ボタンをクリックしてください。<br> まず、表示されたコードを <strong>MFA コード1</strong> に入力してください。<br> 一定時間が過ぎると別の MFA コードが表示されるので <strong>MFA コード2</strong> に入力してください。</p>
+<aside class="special"><p>2 つのコードは連続させる必要があります。切り替わったタイミングで入力を行うとスムーズに進めることができます。</p>
+</aside>
+<p class="image-container"><img alt="パスワード入力" src="img/b6ecaad5d9b8c95d.png"></p>
+<p>以下のメッセージが表示されたら成功です。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/4a0928d516d2a3a.png"></p>
-<p>上記メッセージが表示されたら成功です。</p>
 
 
       </google-codelab-step>
@@ -156,7 +160,7 @@
 <p class="image-container"><img alt="IAM" src="img/13e48a597f9c9fc4.png"></p>
 <p>AWS Identity and Access Management (IAM) は、誰がどのサービスやリソースに、どのような条件でアクセスできるかを指定することができる権限コントロールのためのサービスです。<br> 誰がどのような操作を行ったか証跡を取ることにも貢献します。</p>
 <p>IAM には、大きく分けて 4 つの機能があります。</p>
-<h3 is-upgraded><strong>グループ</strong></h3>
+<h3 is-upgraded><strong>ユーザーグループ</strong></h3>
 <p>ユーザーをとりまとめるための機能です。<br> 会社で例えると、部、課、チームのような概念です。</p>
 <h3 is-upgraded><strong>ユーザー</strong></h3>
 <p>AWS を利用するユーザーを管理するための機能です。<br> アプリケーションに操作を委ねるアクセスキーも発行できます。<br> 会社で例えるなら社員や社員証といったところです。</p>
@@ -165,7 +169,7 @@
 <h3 is-upgraded><strong>ポリシー</strong></h3>
 <p>上記、グループ、ユーザー、ロールに付与する具体的な権限の内訳です。<br> 操作を許可したり、禁止したりできます。</p>
 <h3 is-upgraded><strong>関係性</strong></h3>
-<p class="image-container"><img alt="パスワード入力" src="img/2b754705c8d940aa.png"></p>
+<p class="image-container"><img alt="パスワード入力" src="img/28f7dffca5a0ad.png"></p>
 <ol type="1">
 <li>ポリシー A はユーザー A にのみ適用されます。</li>
 <li>ポリシー B、C、D は、ユーザー A とユーザー B が含まれるグループに適用されます。</li>
@@ -173,6 +177,45 @@
 </ol>
 <h3 is-upgraded>IAM ユーザーを作成する</h3>
 <p>それでは、Administrator の権限を持つ IAM ユーザーを作成してみましょう。</p>
+<p>IAM コンソールにアクセスしてください。<br> 検索ボックスに「iam」と入力して、候補をクリックするか、以下の URL をクリックして、CloudTrail コンソールにアクセスします。</p>
+<p><a href="https://us-east-1.console.aws.amazon.com/iamv2/home" target="_blank">https://us-east-1.console.aws.amazon.com/iamv2/home</a></p>
+<p class="image-container"><img alt="サービス検索" src="img/bb3d93fa7e64d21b.png"></p>
+<p>IAM コンソールに画面が遷移したら、左側のメニューペインから <strong>ユーザー</strong> をクリックします。</p>
+<p class="image-container"><img alt="IAM ユーザー" src="img/fef666b808ab4057.png"></p>
+<p><strong>ユーザー</strong> の画面に遷移するので、[<strong>ユーザーを追加</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="ユーザーを追加" src="img/ed6dbe41461e4abd.png"></p>
+<p>ユーザー名は任意です。<br> 以下のような例に従って、ユーザーを作成してください。</p>
+<p><strong>例1:</strong> handson_user<br><strong>例2:</strong> YamadaTaro</p>
+<p><strong>パスワード - AWS マネジメントコンソールへのアクセス</strong> のチェックボックスにチェックを入れてください。<br> チェックを入れると、下部に <strong>コンソールのパスワード</strong> などが動的に表示されますが、変更せずに [<strong>次のステップ: アクセス権限</strong>] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="AWS CloudTrail" src="img/78b75c848858c4bf.png"><img alt="次のステップ: アクセス権限" src="img/783a5da89f9a1715.png"></p>
+<p><strong>アクセス許可の設定</strong> に画面が遷移するので、[<strong>既存のポリシーを直接アタッチ</strong>] を選択し、検索ボックスに「AdministratorAccess」と入力します。<br> [<strong>ENTER</strong>] キーを押下すると、候補に「AdministratorAccess」が表示されるので、チェックボックスにチェックを入れて、 [<strong>次のステップ: タグ</strong>] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="権限付与" src="img/f130f0a1dc6c1f6a.png"><img alt="タグ" src="img/5147f8468bf6bd25.png"></p>
+<p><strong>タグの追加 (オプション)</strong> に画面遷移するので何も入力せずに、[<strong>次のステップ: 確認</strong>] ボタンをクリックします。<br><strong>確認</strong> 画面に遷移するので、内容に不備がないか確認して [<strong>ユーザーの作成</strong>] ボタンをクリックします。</p>
+<aside class="special"><p>AdministratorAccess とは別に、IAMUserChangePassword が付与されています。IAMUserChangePassword は IAM ユーザーがパスワードを変更できる権限です。IAM ユーザー作成時に標準で授与されます。</p>
+</aside>
+<p class="image-container"><img alt="確認画面" src="img/75d8e95b22504d7e.png"><img alt="ユーザーを作成" src="img/213ab496e649d412.png"></p>
+<p>ここで、必ず [<strong>.csv のダウンロード</strong>] ボタンをクリックして、認証情報をダウンロードしておいてください。<br> これがないと、ログインパスワードが分かりません。</p>
+<p>ダウンロードができたら、[<strong>閉じる</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="CSV をダウンロード" src="img/85bb3174d84a74fe.png"></p>
+<p>作成したユーザー名をクリックしてください。</p>
+<p class="image-container"><img alt="ユーザーリスト" src="img/f6d3cd24a374cf21.png"></p>
+<h3 is-upgraded>MFA を有効化する</h3>
+<p>ルートユーザー同様、作成したユーザーも乗っ取られると大変なことになります。<br> そのため、MFA を有効にしておきます。</p>
+<p>[<strong>認証情報</strong>] タブを選択して、<strong>MFA デバイスの割り当て</strong> にある <strong>管理</strong> をクリックします。</p>
+<p class="image-container"><img alt="ユーザーリスト" src="img/65d3eeea94610abb.png"></p>
+<p><strong>MFA デバイスの管理</strong> のダイヤログ画面が表示されるので、[ <strong>仮想 MFA デバイス</strong> ] が選択されていることを確認して、[ <strong>続行</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/f7c0d4a393db69f0.png"></p>
+<p>Google Authenticator アプリを開き、で読み込んでください。右下の [+] アイコンをタップして、</p>
+<p class="image-container"><img alt="パスワード入力" src="img/47789886e2dd718e.png"></p>
+<p>Google Authenticator から発行されたコードを 2 つ入力して、[ <strong>MFA の割り当て</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/b6ecaad5d9b8c95d.png"></p>
+<p>以下のメッセージが表示されたら成功です。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/4a0928d516d2a3a.png"></p>
+<p>MFA を有効化すると、以下のように MFA デバイスの割り当てが <strong>なし</strong> からリソース情報 (ARN といいます) に変わります。</p>
+<p class="image-container"><img alt="MFA 有効済み" src="img/7cfe812ef5b458de.png"></p>
+<aside class="special"><p>作成したユーザーはユーザー一覧のページから確認できます。</p>
+</aside>
+<p>ユーザー一覧のページ <a href="https://us-east-1.console.aws.amazon.com/iamv2/home#/users" target="_blank">https://us-east-1.console.aws.amazon.com/iamv2/home#/users</a></p>
 
 
       </google-codelab-step>
@@ -188,10 +231,31 @@
 
       </google-codelab-step>
     
+      <google-codelab-step label="IAM ユーザーでサインインする" duration="0">
+        <p>作成した IAM ユーザーでサインインしてみましょう。</p>
+<p>以下 URL にアクセスするか、表示されているようであれば [もう一度ログインする] ボタンをクリックしてください。</p>
+<p><a href="https://signin.aws.amazon.com/console" target="_blank">https://signin.aws.amazon.com/console</a></p>
+<p>以下の画面に遷移しますので、[ <strong>○ IAM ユーザー</strong> ] が選択されていることを確認し、<strong>アカウント ID (12 桁)　またはアカウントエイリアス</strong> にアカウント ID を入力して、[ <strong>次へ</strong> ] ボタンをクリックしてください。</p>
+<aside class="special"><p>アカウント ID を控えるのを忘れた方は届いたメールを確認するか、ルートアカウントでサインインして確認してください。</p>
+</aside>
+<p class="image-container"><img alt="IAM アカウントユーザー" src="img/c262338d9696d60c.png"></p>
+<p>アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、パスワードを入力してサインインしてください。</p>
+<p class="image-container"><img alt="アカウント、ユーザー ID、パスワード" src="img/25588a4eb455130e.png"></p>
+<aside class="special"><p>ユーザー名とパスワードはダウンロードした csv ファイルに記載されています。</p>
+</aside>
+<p>以下の画面が表示されたらサインイン成功です。</p>
+<p class="image-container"><img alt="パスワード入力" src="img/45f4f24f8d787e82.png"></p>
+<p>今後、他のハンズオンで「コンソール画面を開いて」と言われた場合は、この画面、またはこの画面から遷移する AWS サービスの画面のことだ、とご認識ください。</p>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="オプション 1 AWS CloudTrail" duration="0">
         <p class="image-container"><img alt="AWS CloudTrail" src="img/30cd53aefaf9bb18.png"></p>
 <h2 is-upgraded>CloudTrail の仕組み</h2>
-<p>AWS の各種サービスは「マネージメントコンソール」、「AWS CLI」、「SDK」、「他AWSサービス」から操作ができますが、ほとんどは API エンドポイントへアクセスします。 CloudTrail はこの AWS アカウント内で実行された API アクションを記録するサービスです。 例えば EC2 インスタンスを削除した場合だと以下などが把握できます。</p>
+<p>AWS の各種サービスは「マネージメントコンソール」、「AWS CLI」、「SDK」、「他AWSサービス」から操作ができますが、ほとんどは API エンドポイントへアクセスします。</p>
+<p class="image-container"><img alt="API エンドポイントへアクセス" src="img/4fc93932935b93aa.png"></p>
+<p>CloudTrail はこの AWS アカウント内で実行された API アクションを記録するサービスです。 例えば EC2 インスタンスを削除した場合だと以下などが把握できます。</p>
 <ul>
 <li><strong>Who?<br></strong> 誰が EC2 インスタンスを削除したか追跡できます。</li>
 <li><strong>What?<br></strong> 何台の EC2 インスタンス削除したか追跡できます。</li>
@@ -204,20 +268,104 @@
 <h2 is-upgraded>CloudTrail の料金</h2>
 <p>CloudTrail はアカウントを作成した直後から有効になります。 証跡の取得自体は料金がかかりませんが、ログを S3 バケットに出力するため S3 バケットの料金がかかります。</p>
 <p>詳細は以下サイトに記載されています。</p>
-<p>https://aws.amazon.com/jp/cloudtrail/pricing/</p>
+<p><a href="https://aws.amazon.com/jp/cloudtrail/pricing/" target="_blank">https://aws.amazon.com/jp/cloudtrail/pricing/</a></p>
+<h2 is-upgraded>設定方法</h2>
+<p>検索ボックスに「cloudtrail」と入力して、候補をクリックするか、以下の URL をクリックして、CloudTrail コンソールにアクセスします。</p>
+<p><a href="https://ap-northeast-1.console.aws.amazon.com/cloudtrail/home?region=ap-northeast-1" target="_blank">https://ap-northeast-1.console.aws.amazon.com/cloudtrail/home?region=ap-northeast-1</a></p>
+<p class="image-container"><img alt="サービス検索" src="img/dda8f22adbeece57.png"></p>
+<p>リージョンが東京であることを確認します。</p>
+<p class="image-container"><img alt="リージョン" src="img/9857c5367aee4d13.png"></p>
+<p>左側にあるドロアーメニューをクリックし、メニューを展開します。</p>
+<p class="image-container"><img alt="ドロアメニュー" src="img/82c8fa3dc975c376.png"></p>
+<p>[<strong>イベント履歴</strong>] を表示をクリックします。</p>
+<p class="image-container"><img alt="イベント履歴" src="img/26e38fff130b9e7f.png"></p>
+<p><strong>＜注意＞</strong></p>
+<ul>
+<li>アカウントで行われたアクションが履歴として記録され一覧に表示されます。</li>
+<li>履歴は 90 日分まで保持することができます。</li>
+<li>90 日分以上履歴を残したい場合は、以降の作業が必要です。</li>
+</ul>
+<h2 is-upgraded>証跡の作成</h2>
+<p>CloudTrail のコンソールに記載されている [<strong>証跡の作成</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="イベント履歴" src="img/38f62dc7c1f9c4a5.png"></p>
+<p>任意の証跡名を入力します。ここでは、management-events としています。<br> [<strong>新しい S3 バケットを作成します</strong>] が選択されていることを確認します。</p>
+<p><strong>証跡ログバケットおよびフォルダ</strong> は自動で入力されていますが、認識しやすいバケット名に変更もできます。</p>
+<p class="image-container"><img alt="イベント履歴" src="img/77188e8ec3ed6632.png"></p>
+<p>ページ下部にある [<strong>次へ</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="イベント履歴" src="img/d258e9bb9974f19b.png"></p>
+<p><strong>ログイベントの選択</strong> 画面に遷移しますので、何も変更せずに [<strong>次へ</strong>] ボタンをクリックします。　　</p>
+<aside class="special"><p>S3 のダウンロードやアップロードの証跡を残したい場合は、データイベントにチェックを入れて下部に表示されたオプションを選択します。</p>
+</aside>
+<p>確認画面で [<strong>証跡の作成</strong>] ボタンをクリックすると S3 バケットに記録が保存されていきます。</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="オプション 2 Budgets の設定" duration="0">
         <p class="image-container"><img alt="AWS CloudTrail" src="img/c59fe6e51af06941.png"></p>
-<p>ルートユーザーでログインすることで利用可能です。</p>
+<p>AWS Budgets を設定すると、AWS の予算設定ができます。<br> 例えば、事前に設定しておいた予算を超えと (あるいは超えそうになると) 通知したりできます。</p>
+<p class="image-container"><img alt="アラーム通知" src="img/ef2a3488822be4d5.png"></p>
+<aside class="warning"><p>リアルタイムではなく、1 日単位での評価になるのでご注意ください。</p>
+</aside>
+<aside class="warning"><p>Budgets は次に記載の設定をしないと IAM ユーザーがパスワードを変更できる権限から操作ができません。ルートユーザーにて実施をお願いします。</p>
+</aside>
+<h2 is-upgraded>IAM ユーザーが請求情報にアクセスできるようにするには？</h2>
+<aside class="special"><p>ルートユーザーでログインしてください。ログイン方法は [4] サインイン をご確認ください。</p>
+</aside>
+<p>右上のアカウント名をクリックして、[<strong>アカウント</strong>] を選択します。</p>
+<p class="image-container"><img alt="アカウント" src="img/c00f98d14e046bd9.png"></p>
+<p>中断にある <strong>IAM ユーザー/ロールによる請求情報へのアクセス</strong> にある「<strong>編集</strong>」ボタンをクリックします。</p>
+<p class="image-container"><img alt="IAM ユーザー/ロールによる請求情報へのアクセス" src="img/c7c9fd4ec3bf7265.png"></p>
+<p><strong>IAM アクセスのアクティブ化</strong> のチェックボックスにチェックを入れます。</p>
+<p class="image-container"><img alt="IAM アクセスのアクティブ化" src="img/d20f561531d59663.png"></p>
+<aside class="special"><p>有効になっていると、以下の通り [IAM ユーザー/ロールによる請求情報へのアクセスは有効になっています。] が表示されます。</p>
+</aside>
+<p class="image-container"><img alt="IAM アクセスのアクティブ化" src="img/5a5d4e0305ba6ed5.png"></p>
+<p>上記の設定を行なうと、IAM ユーザーに Billing / Budget 権限が有効になっている場合に請求情報へアクセスができます。</p>
+<aside class="special"><p>AdministratorAccess をアタッチしていると請求情報にアクセスできます。</p>
+</aside>
+<h2 is-upgraded>Budget 設定</h2>
+<p>左側のメニューにある Budget をクリックし、[<strong>予算を作成する</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Budgets メニュー" src="img/8f5c086a8e972a41.png"></p>
+<p><strong>予算タイプを選択</strong> が表示されるので、<strong>コスト予算 – 推奨</strong> のまま、[<strong>次へ</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="コスト予算 - 推奨" src="img/93569c0b9004397.png"></p>
+<p><strong>詳細</strong> にある予算名に任意の名前をつけます。ここでは $20 としています。</p>
+<p class="image-container"><img alt="予算名" src="img/248a2b2b2526f510.png"></p>
+<p><strong>予算額を設定</strong> にある <strong>予算額 ($) を設定してください</strong> に 20.00 を設定します。</p>
+<p class="image-container"><img alt="予算額を設定" src="img/4bf81edc5bd698ab.png"></p>
+<p>[<strong>次へ</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="次へ" src="img/1f9c9aba645e8d3d.png"></p>
+<p>[<strong>アラートのしきい値を追加</strong>] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="アラートのしきい値を追加" src="img/843998f97f8cf659.png"></p>
+<p>以下が展開するので、しきい値を 100 にし、通知する E メールを設定します。<br> [<strong>次へ</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="アラートのしきい値を設定" src="img/f3c502040e6aebc4.png"></p>
+<p>先ほどの <strong>Alert#1</strong> の画面に戻るので、[<strong>次へ</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Alert#1" src="img/30d269de4d6ffbb4.png"></p>
+<p>[<strong>予算を作成</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Alert#1" src="img/d0884eb002117ee8.png"></p>
+<p>これで、$20 を超えた場合にアラート通知されるようになります。</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="オプション 3 Cost Explorer の設定" duration="0">
         <p class="image-container"><img alt="AWS CloudTrail" src="img/269cf697d327540b.png"></p>
+<p>AWS Cost Explorer は AWS 料金の使用金額を確認するためのサービスです。<br> 24 時間単位で、その日時点の料金が確定しますので今日のハンズオンが終わってから、明日、明後日に料金が発生していないか確認をしてください。</p>
+<p>左側のメニューペインから <strong>Cost Explorer</strong> をクリックし、[<strong>Cost Explorer を起動</strong>] ボタンをクリックします。</p>
+<p class="image-container"><img alt="AWS CloudTrail" src="img/249ed1a28d150bc5.png"></p>
+<p>しばらくすると以下の画面になりますので、[<strong>Cost Exlorer で表示</strong>] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="AWS CloudTrail" src="img/c61a9bc5feafc5bb.png"></p>
+<p>[<strong>自動選択:</strong>] から、1 月間や、過去 6 ヶ月といった期間でコストの変動を確認できます。 また、[毎時、日別、月別] を選択してクローズアップした調査や、長期に渡っての確認が可能です。</p>
+<p class="image-container"><img alt="ドロップダウンメニュー" src="img/2fd0a7846d53e865.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="その他 追加情報" duration="0">
+        <ol type="1">
+<li>MFA デバイスが故障または紛失した場合のセルフサービスによるリセットの方法<br><a href="https://aws.amazon.com/jp/blogs/news/how-to-reset-mfa-token/" target="_blank">https://aws.amazon.com/jp/blogs/news/how-to-reset-mfa-token/</a></li>
+<li>AWS SSO の MFA で Macbook の TouchID (指紋センサー) を使う方法<br><a href="https://dev.classmethod.jp/articles/multi-factor-authentication-with-webauthn-for-aws-sso/" target="_blank">https://dev.classmethod.jp/articles/multi-factor-authentication-with-webauthn-for-aws-sso/</a></li>
+</ol>
 
 
       </google-codelab-step>
