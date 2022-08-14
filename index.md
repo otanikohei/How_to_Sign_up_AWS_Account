@@ -71,7 +71,7 @@ Amazon Web Services (AWS) を利用するには、AWS アカウントの契約�
 
 ![ルートユーザーを選択して、メールアドレスを入力](./images/04_03_root_user.png)
 
-パスワードを入力する画面に遷移しますので、先ほど設定したパスワードでサインインしてください。
+パスワードを入力する画面に遷移しますので、先ほどの **アカウント作成手順** にて設定したパスワードでサインインしてください。
 
 ![パスワード入力](./images/04_04_root_pw.png)
 
@@ -419,11 +419,11 @@ AWS マネジメントコンソールでの操作を終えたらサインアウ�
 
 ![IAM アカウントユーザー](./images/08_01_IAM_account.png)
 
-アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、パスワードを入力してサインインしてください。
+アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、それぞれを入力してサインインしてください。
 
 ![アカウント、ユーザー ID、パスワード](./images/08_02_acount_user_pw.png)
 
-<aside class="positive">ユーザー名とパスワードはダウンロードした csv ファイルに記載されています。</aside>
+<aside class="positive">ユーザー名とパスワードは先ほどのIAM ユーザーを作成する手順でダウンロードした csv ファイルに記載されています。</aside>
 
 以下の画面が表示されたらサインイン成功です。
 
@@ -501,7 +501,13 @@ CloudTrail のコンソールに記載されている [ **証跡の作成** ] �
 任意の証跡名を入力します。ここでは、management-events としています。  
 [ **新しい S3 バケットを作成します** ] が選択されていることを確認します。  
 
+![Amazon EventBridge](./images/00_07_S3.png)
+
+<aside class="positive"> Amazon S3 は定価コストで大量のデータを保存するのに適した AWS のオブジェクトストレージです。</aside>
+
 **証跡ログバケットおよびフォルダ** は自動で入力されていますが、認識しやすいバケット名に変更もできます。
+
+<aside class="positive"> 後ほど、Athena の手順で使用するので、S3 バケット名を控えておいてください。</aside>
 
 ![イベント履歴](./images/10_07_cloudtrail_edit.png)
 
@@ -520,7 +526,7 @@ CloudTrail のコンソールに記載されている [ **証跡の作成** ] �
 ![AWS CloudTrail](./images/00_03_AWS_Budgets.png)
 
 AWS Budgets を設定すると、AWS の予算設定ができます。  
-例えば、事前に設定しておいた予算を超えと (あるいは超えそうになると) 通知したりできます。
+例えば、事前に設定しておいた予算を超えると (あるいは超えそうになると) 通知したりできます。
 
 ![アラーム通知](./images/11_01_alarm.png)
 
@@ -627,11 +633,13 @@ Amazon Event Bridge を利用することで、AWS マネジメントコンソ�
 メールの通知には SNS トピックが必要です。  
 EventBridge を設定する前に、SNS トピックを設定します。  
 
-検索ボックスに SNS と入力して **Amazon Simple Notification Service** を選択するか、[こちらの URL](https://ap-northeast-1.console.aws.amazon.com/sns/v3/home) にアクセスして、SNS コンソールを開きます。
+検索ボックスに SNS と入力して **Amazon Simple Notification Service** を選択するか、[こちらの URL](https://us-east-1.console.aws.amazon.com/sns/v3/home) にアクセスして、SNS コンソールを開きます。
 
 ![Amazon Simple Notification Service](./images/13_01_sns_search.png)
 
-東京リージョンであることを確認して、異なる場合は移動してください。
+**バージニア北部リージョン** であることを確認して、異なる場合は移動してください。
+
+<aside class="positive">サインイン情報はバージニアリージョンに記録されます。</aside>
 
 ![Amazon Simple Notification Service](./images/13_02_tokyo_region.png)
 
@@ -680,9 +688,15 @@ SNS の設定ができたら、EventBridge でサインインイベントのト�
 
 ![Amazon Event Bridge](./images/00_06_Amazon_Event_Bridge.png)
 
-検索ボックスに EventBridge と入力するか、[こちらの URL](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1/) にアクセスして、EventBridge コンソールを開きます。
+検索ボックスに EventBridge と入力するか、[こちらの URL](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/) にアクセスして、EventBridge コンソールを開きます。
 
 ![Amazon EventBridge](./images/13_08_eventbridge_search.png)
+
+**バージニア北部** リージョンであることを確認してください。
+
+<aside class="positive">サインイン情報はバージニアリージョンに記録されます。</aside>
+
+![Amazon EventBridge](./images/13_07_2_eventbridge_region.png)
 
 [**ルールを作成**] ボタンをクリックして、
 
@@ -707,8 +721,13 @@ SNS の設定ができたら、EventBridge でサインインイベントのト�
 **タグを設定 - オプション** の画面に遷移しますので、[ **次へ** ] ボタンをクリックします。  
 **レビューと作成** 画面に遷移しますので、内容を確認して下部の [ **ルールの作成** ] ボタンをクリックします。
 
+サインインすると以下のようなメール通知が届きます。
+
+![Amazon EventBridge](./images/13_13_notification_mail.png)
 
 ## CloudTrail を Athena で検索する
+
+![Amazon EventBridge](./images/00_07_S3.png)
 
 オプション 1 で AWS CloudTrail に証跡を設定すると、S3 バケットにログが出力されていきます。  
 ただ、S3 バケットに保存されたファイルは .gz ファイルに圧縮されており、
@@ -736,47 +755,76 @@ SNS の設定ができたら、EventBridge でサインインイベントのト�
 (以下省略)
 ```
 
-そこで、Amazon Ahena を利用して s3 ファイルに保存されたログを横串で検索する方法をご紹介します。
+そこで、Amazon Ahena を利用して s3 バケットに複数のファイルとして保存されたログをまとめて横串で検索する方法をご紹介します。
+
+![Amazon EventBridge](./images/00_08_Athena.png)
+
+Amazon Athena は S3 バケットに保存されたデータに対して、直接クエリを実行してデータを抽出できるサービスです。  
+クエリ結果は結果用の S3 バケットに保存されます。まずは、Athena を実行するために、結果保存用バケットを設定します。
+
+### Athena のクエリ結果を保存するバケットを作成
+
+検索ボックスにて s3 と入力して、S3 をクリックするか、[こちら](https://s3.console.aws.amazon.com/s3/home?region=ap-northeast-1) をクリックして、Amazon S3 コンソールを開きます。
+
+![Amazon EventBridge](./images/14_02_s3_search.png)
+
+[ **バケットを作成** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/14_03_create_bucket.png)
+
+**バケットを作成** 画面に遷移するので、任意のバケット名を入力します。  
+ここでは、handson-athena-result-20220814 を指定しましたが、handson-athena-result-＜お名前＞ をお勧めします。
+
+![Amazon EventBridge](./images/14_04_name_bucket.png)
+
+バケット名が入力できたら、画面下部の [ **バケットを作成** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/14_05_create_bucket.png)
+
+
+![Amazon EventBridge](./images/00_02_AWS_CloudTrail.png)
 
 CloudTrail を開き、左側のメニューから **イベント履歴** をクリックします。  
 右側にある [ **Athena テーブルを作成** ] ボタンをクリックします。
 
-![Amazon EventBridge](./images/14_02_create_Ahena_table.png)
+![Amazon EventBridge](./images/14_06_create_Ahena_table.png)
 
 すると、**Amazon Athena でテーブルを作成** 画面に遷移します。  
 **ストレージの場所** は、先の手順で設定した証跡用のバケットを指定します。  
 [ **テーブルを作成** ] ボタンをクリックします。
 
-![Amazon EventBridge](./images/14_03_create_Athena_table.png)
+![Amazon EventBridge](./images/14_07_create_Athena_table.png)
 
 検索ボックスに athena と入力すると、候補に **Athena** が表示されるので、選択するか [こちら](https://ap-northeast-1.console.aws.amazon.com/athena/home?region=ap-northeast-1#/) をクリックして、Athena コンソールにアクセスします。  
 
-![Amazon EventBridge](./images/14_04_athena_search.png)
+![Amazon EventBridge](./images/14_08_athena_search.png)
 
-左側のメニューから **クエリエディタ** をクリックすると、先ほどの CloudTrail での操作でテーブルができているのが確認できます。  
+左側のメニューから **クエリエディタ** をクリックすると、先ほどの CloudTrail での操作でテーブルが作成されているのが確認できます。  
 Athena の検索結果を s3 バケットに保存できないと Athena はクエリを実行できませんので、
 
-![Amazon EventBridge](./images/14_05_athena_console.png)
+![Amazon EventBridge](./images/14_09_athena_console.png)
 
 表示されているメッセージにある [ **設定を表示** ] ボタンをクリックします。  
 メッセージが表示されない方は [ **設定** ] タブをクリックします。
 
-![Amazon EventBridge](./images/14_06_view_setting.png)
+![Amazon EventBridge](./images/14_10_view_setting.png)
 
 [ **管理** ] ボタンをクリックして、
 
-![Amazon EventBridge](./images/14_07_manage.png)
+![Amazon EventBridge](./images/14_11_manage.png)
 
 クエリ結果の場所に先ほど作成した s3 バケットを指定します。  
 [ **保存** ] ボタンをクリックします。
 
-![Amazon EventBridge](./images/14_08_set_bucket.png)
+![Amazon EventBridge](./images/14_12_set_bucket.png)
 
 設定できると以下のようにバケットのパスが設定されます。
 
-![Amazon EventBridge](./images/14_09_settings.png)
+![Amazon EventBridge](./images/14_13_settings.png)
 
-Athena を実行する準備が整いましたので、試しに以下を実行してみてください。
+Athena を実行する準備が整いましたので、試しに以下 SQL 文をコピペして実行してみてください。
+
+<aside class="positive">FROM 句にある <テーブルとビューのテーブルに表示されているテーブル名> を書き換えてから実行してください。</aside>
 
 ```sql
 SELECT
@@ -790,7 +838,9 @@ LIMIT 100;
 
 [ **実行** ] ボタンをクリックして以下のように結果が表示されれば成功です。
 
-![Amazon EventBridge](./images/14_10_query_result.png)
+![Amazon EventBridge](./images/14_14_query_result.png)
+
+各カラムの意味は以下の通りです。
 
 |項目名|説明|
 |---|---|

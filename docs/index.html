@@ -78,7 +78,7 @@
 <p class="image-container"><img alt="ルートユーザーの E メールを使用したサインイン" src="img/2042febc3baeb9ff.png"></p>
 <p>以下の画面に遷移しますので、[ <strong>○ ルートユーザー</strong> ] が選択されていることを確認し、<strong>ルートユーザーの E メールアドレス</strong> にメールアドレスを入力して、[ <strong>次へ</strong> ] ボタンをクリックしてください。</p>
 <p class="image-container"><img alt="ルートユーザーを選択して、メールアドレスを入力" src="img/e13ee0adca4bfab4.png"></p>
-<p>パスワードを入力する画面に遷移しますので、先ほど設定したパスワードでサインインしてください。</p>
+<p>パスワードを入力する画面に遷移しますので、先ほどの <strong>アカウント作成手順</strong> にて設定したパスワードでサインインしてください。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/4addfbab5e104d3e.png"></p>
 <p>以下の画面が表示されたらサインイン成功です。</p>
 <p class="image-container"><img alt="サインイン成功" src="img/45f4f24f8d787e82.png"></p>
@@ -275,9 +275,9 @@
 <aside class="special"><p>アカウント ID を控えるのを忘れた方は届いたメールを確認するか、ルートアカウントでサインインして確認してください。</p>
 </aside>
 <p class="image-container"><img alt="IAM アカウントユーザー" src="img/c262338d9696d60c.png"></p>
-<p>アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、パスワードを入力してサインインしてください。</p>
-<p class="image-container"><img alt="アカウント、ユーザー ID、パスワード" src="img/25588a4eb455130e.png"></p>
-<aside class="special"><p>ユーザー名とパスワードはダウンロードした csv ファイルに記載されています。</p>
+<p>アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、それぞれを入力してサインインしてください。</p>
+<p class="image-container"><img alt="アカウント、ユーザー ID、パスワード" src="img/14a9e63f06ca9ba1.png"></p>
+<aside class="special"><p>ユーザー名とパスワードは先ほどのIAM ユーザーを作成する手順でダウンロードした csv ファイルに記載されています。</p>
 </aside>
 <p>以下の画面が表示されたらサインイン成功です。</p>
 <p class="image-container"><img alt="パスワード入力" src="img/45f4f24f8d787e82.png"></p>
@@ -324,7 +324,12 @@
 <p>CloudTrail のコンソールに記載されている [ <strong>証跡の作成</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="イベント履歴" src="img/38f62dc7c1f9c4a5.png"></p>
 <p>任意の証跡名を入力します。ここでは、management-events としています。<br> [ <strong>新しい S3 バケットを作成します</strong> ] が選択されていることを確認します。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/a6425b988556b504.png"></p>
+<aside class="special"><p> Amazon S3 は定価コストで大量のデータを保存するのに適した AWS のオブジェクトストレージです。</p>
+</aside>
 <p><strong>証跡ログバケットおよびフォルダ</strong> は自動で入力されていますが、認識しやすいバケット名に変更もできます。</p>
+<aside class="special"><p> 後ほど、Athena の手順で使用するので、S3 バケット名を控えておいてください。</p>
+</aside>
 <p class="image-container"><img alt="イベント履歴" src="img/77188e8ec3ed6632.png"></p>
 <p>ページ下部にある [ <strong>次へ</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="イベント履歴" src="img/d258e9bb9974f19b.png"></p>
@@ -338,7 +343,7 @@
     
       <google-codelab-step label="オプション 2 Budgets の設定" duration="0">
         <p class="image-container"><img alt="AWS CloudTrail" src="img/c59fe6e51af06941.png"></p>
-<p>AWS Budgets を設定すると、AWS の予算設定ができます。<br> 例えば、事前に設定しておいた予算を超えと (あるいは超えそうになると) 通知したりできます。</p>
+<p>AWS Budgets を設定すると、AWS の予算設定ができます。<br> 例えば、事前に設定しておいた予算を超えると (あるいは超えそうになると) 通知したりできます。</p>
 <p class="image-container"><img alt="アラーム通知" src="img/ef2a3488822be4d5.png"></p>
 <aside class="warning"><p>リアルタイムではなく、1 日単位での評価になるのでご注意ください。</p>
 </aside>
@@ -402,9 +407,11 @@
 <h2 is-upgraded>Amazon SNS トピックを設定する</h2>
 <p class="image-container"><img alt="Amazon Simple Notification Service (Amazon SNS)" src="img/2f5d97ebfbd88564.png"></p>
 <p>メールの通知には SNS トピックが必要です。<br> EventBridge を設定する前に、SNS トピックを設定します。</p>
-<p>検索ボックスに SNS と入力して <strong>Amazon Simple Notification Service</strong> を選択するか、<a href="https://ap-northeast-1.console.aws.amazon.com/sns/v3/home" target="_blank">こちらの URL</a> にアクセスして、SNS コンソールを開きます。</p>
+<p>検索ボックスに SNS と入力して <strong>Amazon Simple Notification Service</strong> を選択するか、<a href="https://us-east-1.console.aws.amazon.com/sns/v3/home" target="_blank">こちらの URL</a> にアクセスして、SNS コンソールを開きます。</p>
 <p class="image-container"><img alt="Amazon Simple Notification Service" src="img/3b3a62c3c7380189.png"></p>
-<p>東京リージョンであることを確認して、異なる場合は移動してください。</p>
+<p><strong>バージニア北部リージョン</strong> であることを確認して、異なる場合は移動してください。</p>
+<aside class="special"><p>サインイン情報はバージニアリージョンに記録されます。</p>
+</aside>
 <p class="image-container"><img alt="Amazon Simple Notification Service" src="img/882c329129a5885f.png"></p>
 <p>ウェルカム画面が表示されたら、<strong>トピック名</strong> に任意のトピック名を入力して、[ <strong>次のステップ</strong> ] をクリックします。<br> ここでは、<strong>signin-topic</strong> にしました。</p>
 <p class="image-container"><img alt="Amazon Simple Notification Service" src="img/daf49214652eaa47.png"></p>
@@ -419,16 +426,20 @@
 <p>左側のメニューから <strong>サブスクリプション</strong> をクリックして、[ <strong>サブスクリプションの作成</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="Amazon Simple Notification Service" src="img/a4ff3bfef0bb3c96.png"></p>
 <p><strong>トピック ARN</strong> で先ほど作成したトピックを選択します。<br><strong>プロトコル</strong> は <strong>E メール</strong> を選択します。<br><strong>エンドポイント</strong> はご利用のメールアドレスを入力します。<br> ページ下部の [ <strong>サブスクリプションの作成</strong> ] ボタンをクリックします。</p>
-<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/82aa21b8888e1e88.png"></p>
+<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/c9a7f395ea0b5184.png"></p>
 <p>以下のようなメールが届きますので、<strong>Confirm subscription</strong> のリンクをクリックします。</p>
-<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/212326c35cfe428c.png"></p>
+<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/71b00185014199ac.png"></p>
 <p>以下、Subscription Confirmed! が表示されたら成功です。</p>
-<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/79295f4bb0338616.png"></p>
+<p class="image-container"><img alt="Amazon Simple Notification Service" src="img/6d252ab380e463a4.png"></p>
 <h2 is-upgraded>Amazon EventBridge の設定</h2>
 <p>SNS の設定ができたら、EventBridge でサインインイベントのトリガーを作成していきます。</p>
 <p class="image-container"><img alt="Amazon Event Bridge" src="img/4f68afa336ee350a.png"></p>
-<p>検索ボックスに EventBridge と入力するか、<a href="https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1/" target="_blank">こちらの URL</a> にアクセスして、EventBridge コンソールを開きます。</p>
+<p>検索ボックスに EventBridge と入力するか、<a href="https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/" target="_blank">こちらの URL</a> にアクセスして、EventBridge コンソールを開きます。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/7975012fa393115a.png"></p>
+<p><strong>バージニア北部</strong> リージョンであることを確認してください。</p>
+<aside class="special"><p>サインイン情報はバージニアリージョンに記録されます。</p>
+</aside>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/66d285c0cc3d510c.png"></p>
 <p>[<strong>ルールを作成</strong>] ボタンをクリックして、</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/5f392ceb6233b7a9.png"></p>
 <p>任意の名前を入力します。ここでは、<strong>signin-alarm</strong> としています。<br> [ <strong>次へ</strong> ] をクリックします。</p>
@@ -438,12 +449,15 @@
 <p><strong>ターゲットを選択</strong> の画面に遷移するので、[ <strong>○ AWS のサービス</strong> ] が選択されていることを確認して、<strong>ターゲットを選択</strong> から [ <strong>SNS トピック</strong> ] を選択し、<strong>トピック</strong> は先ほど作成した SNS トピック名を選択します。ここでは「<strong>singin-topic</strong>」を選択します。<br> [ <strong>次へ</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/9c4d79b37eaddaf2.png"></p>
 <p><strong>タグを設定 - オプション</strong> の画面に遷移しますので、[ <strong>次へ</strong> ] ボタンをクリックします。<br><strong>レビューと作成</strong> 画面に遷移しますので、内容を確認して下部の [ <strong>ルールの作成</strong> ] ボタンをクリックします。</p>
+<p>サインインすると以下のようなメール通知が届きます。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/a29f1ecf78023d89.png"></p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="CloudTrail を Athena で検索する" duration="0">
-        <p>オプション 1 で AWS CloudTrail に証跡を設定すると、S3 バケットにログが出力されていきます。<br> ただ、S3 バケットに保存されたファイルは .gz ファイルに圧縮されており、</p>
+        <p class="image-container"><img alt="Amazon EventBridge" src="img/a6425b988556b504.png"></p>
+<p>オプション 1 で AWS CloudTrail に証跡を設定すると、S3 バケットにログが出力されていきます。<br> ただ、S3 バケットに保存されたファイルは .gz ファイルに圧縮されており、</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/ddc207ebc1ac04b1.png"></p>
 <p>ファイルには、以下のように JSON 形式で記録されています。<br> これらのファイルを一つ一つダウンロードして確認するのは効率が悪いです。</p>
 <pre><code language="language-json" class="language-json">{
@@ -462,14 +476,26 @@
             &#34;userAgent&#34;: &#34;cloudtrail.amazonaws.com&#34;,
 (以下省略)
 </code></pre>
-<p>そこで、Amazon Ahena を利用して s3 ファイルに保存されたログを横串で検索する方法をご紹介します。</p>
+<p>そこで、Amazon Ahena を利用して s3 バケットに複数のファイルとして保存されたログをまとめて横串で検索する方法をご紹介します。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/299de8052e98fc49.png"></p>
+<p>Amazon Athena は S3 バケットに保存されたデータに対して、直接クエリを実行してデータを抽出できるサービスです。<br> クエリ結果は結果用の S3 バケットに保存されます。まずは、Athena を実行するために、結果保存用バケットを設定します。</p>
+<h2 is-upgraded>Athena のクエリ結果を保存するバケットを作成</h2>
+<p>検索ボックスにて s3 と入力して、S3 をクリックするか、<a href="https://s3.console.aws.amazon.com/s3/home?region=ap-northeast-1" target="_blank">こちら</a> をクリックして、Amazon S3 コンソールを開きます。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/c68a271ba40bccb6.png"></p>
+<p>[ <strong>バケットを作成</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/ff7ff911118f8811.png"></p>
+<p><strong>バケットを作成</strong> 画面に遷移するので、任意のバケット名を入力します。<br> ここでは、handson-athena-result-20220814 を指定しましたが、handson-athena-result-＜お名前＞ をお勧めします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/b5944226c2ca0167.png"></p>
+<p>バケット名が入力できたら、画面下部の [ <strong>バケットを作成</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/549f99fd28d4fb0.png"></p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/30cd53aefaf9bb18.png"></p>
 <p>CloudTrail を開き、左側のメニューから <strong>イベント履歴</strong> をクリックします。<br> 右側にある [ <strong>Athena テーブルを作成</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/804b238672cdd058.png"></p>
 <p>すると、<strong>Amazon Athena でテーブルを作成</strong> 画面に遷移します。<br><strong>ストレージの場所</strong> は、先の手順で設定した証跡用のバケットを指定します。<br> [ <strong>テーブルを作成</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/6bb1320a6899b693.png"></p>
 <p>検索ボックスに athena と入力すると、候補に <strong>Athena</strong> が表示されるので、選択するか <a href="https://ap-northeast-1.console.aws.amazon.com/athena/home?region=ap-northeast-1#/" target="_blank">こちら</a> をクリックして、Athena コンソールにアクセスします。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/4e168176d487eff3.png"></p>
-<p>左側のメニューから <strong>クエリエディタ</strong> をクリックすると、先ほどの CloudTrail での操作でテーブルができているのが確認できます。<br> Athena の検索結果を s3 バケットに保存できないと Athena はクエリを実行できませんので、</p>
+<p>左側のメニューから <strong>クエリエディタ</strong> をクリックすると、先ほどの CloudTrail での操作でテーブルが作成されているのが確認できます。<br> Athena の検索結果を s3 バケットに保存できないと Athena はクエリを実行できませんので、</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/e99ab46eda7e9e4a.png"></p>
 <p>表示されているメッセージにある [ <strong>設定を表示</strong> ] ボタンをクリックします。<br> メッセージが表示されない方は [ <strong>設定</strong> ] タブをクリックします。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/f487d638fcefd5da.png"></p>
@@ -479,7 +505,9 @@
 <p class="image-container"><img alt="Amazon EventBridge" src="img/40d8726c518207bd.png"></p>
 <p>設定できると以下のようにバケットのパスが設定されます。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/81efa8d06b085d73.png"></p>
-<p>Athena を実行する準備が整いましたので、試しに以下を実行してみてください。</p>
+<p>Athena を実行する準備が整いましたので、試しに以下 SQL 文をコピペして実行してみてください。</p>
+<aside class="special"><p>FROM 句にある &lt;テーブルとビューのテーブルに表示されているテーブル名&gt; を書き換えてから実行してください。</p>
+</aside>
 <pre><code language="language-sql" class="language-sql">SELECT
  useridentity.arn,
  eventname,
@@ -490,6 +518,7 @@ LIMIT 100;
 </code></pre>
 <p>[ <strong>実行</strong> ] ボタンをクリックして以下のように結果が表示されれば成功です。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/132e3a192b191d09.png"></p>
+<p>各カラムの意味は以下の通りです。</p>
 <table>
 <tr><td colspan="1" rowspan="1"><p>項目名</p>
 </td><td colspan="1" rowspan="1"><p>説明</p>
