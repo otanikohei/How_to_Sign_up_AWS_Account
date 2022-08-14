@@ -10,7 +10,7 @@ feedback link: https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings
 ## はじめに
 Duration: 0:05:00
 
-![扉絵](./images/01_title_image.gif)
+![扉絵](./images/01_01_title_image.gif)
 
 本ハンズオンは以下のような方をターゲットにしています。
 
@@ -26,7 +26,7 @@ Duration: 0:05:00
 
 ### ご用意いただきたいもの
 
-![マストアイテム](./images/02_must_items.png)
+![マストアイテム](./images/01_02_must_items.png)
 
 - メールアドレス
 - クレジットカード／デビットカード
@@ -41,7 +41,7 @@ AWS には無料利用枠があります。一部のサービスが一定額ま�
 
 以下は、無料枠の一部ですが有効期限が 12 ヶ月のものが多いので使えるうちに色々試してしまいましょう！ 
 
-![無料枠の例](./images/04_free_trial.png)
+![無料枠の例](./images/02_01_free_trial.png)
 
 ## AWS アカウント作成の流れ
 
@@ -61,23 +61,23 @@ Amazon Web Services (AWS) を利用するには、AWS アカウントの契約�
 
 以下の画面がサインイン画面が表示されたら、
 
-![サインイン画面](./images/06_aws_management_console_sign_in.png)
+![サインイン画面](./images/04_01_aws_management_console_sign_in.png)
 
 「ルートユーザーの E メールを使用したサインイン」のリンクをクリックしてください。
 
-![サインイン画面](./images/07_signin_as_root.png)
+![ルートユーザーの E メールを使用したサインイン](./images/04_02_signin_as_root.png)
 
 以下の画面に遷移しますので、[ **○ ルートユーザー** ] が選択されていることを確認し、**ルートユーザーの E メールアドレス** にメールアドレスを入力して、[ **次へ** ] ボタンをクリックしてください。
 
-![パスワード入力](./images/08_root_user.png)
+![ルートユーザーを選択して、メールアドレスを入力](./images/04_03_root_user.png)
 
 パスワードを入力する画面に遷移しますので、先ほど設定したパスワードでサインインしてください。
 
-![パスワード入力](./images/09_root_pw.png)
+![パスワード入力](./images/04_04_root_pw.png)
 
 以下の画面が表示されたらサインイン成功です。
 
-![パスワード入力](./images/10_signin_toppage.png)
+![サインイン成功](./images/04_05_signin_toppage.png)
 
 今後、他のハンズオンで「コンソール画面を開いて」と言われた場合は、この画面、またはこの画面から遷移する AWS サービスの画面のことだ、とご認識ください。
 
@@ -85,22 +85,22 @@ Amazon Web Services (AWS) を利用するには、AWS アカウントの契約�
 
 マネジメントコンソールの画面の構成について簡単に説明します。  
 
-![AWS マネジメントコンソールの構成](./images/22_aws_management_console.png)
+![AWS マネジメントコンソールの構成](./images/05_01_aws_management_console.png)
 
 1. 左上の AWS のロゴをクリックすると、トップページが表示されます。  
-  ![AWS マネジメントコンソールの構成](./images/23_management_console_01.png)
+  ![AWS マネジメントコンソールの構成](./images/05_02_manecon_aws.png)
 2. サービスをクリックすると、サービスの一覧が表示されます。  
-  ![AWS マネジメントコンソールの構成](./images/24_management_console_02.gif)
+  ![AWS マネジメントコンソールの構成](./images/05_03_manecon_services.gif)
 3. テキストボックスにキーワードを入力すると候補が表示されます。例えば、api と入力すると、API Gateway が一番に表示され、次候補に API を記録する CloudTrail が表示されます。
-  ![AWS マネジメントコンソールの構成](./images/25_management_console_03.png)
+  ![AWS マネジメントコンソールの構成](./images/05_04_manecon_textbox.png)
 4. CloudShell のアイコンです。本ハンズオンでは取り上げませんが、AWS CLI を実行できます。
-  ![AWS マネジメントコンソールの構成](./images/26_management_console_04.png)
+  ![AWS マネジメントコンソールの構成](./images/05_05_manecon_cloudshell.png)
 5. パーソナルヘルスダッシュボードです。メンテナンスのお知らせや障害などが通知されます。
-  ![AWS マネジメントコンソールの構成](./images/27_management_console_05.png)
+  ![AWS マネジメントコンソールの構成](./images/05_06_manecon_personal_health_dashboard.png)
 6. サポートセンター へのリンクや、AWS IQ というエキスパートとコンタクトを取るためのツール、re:Post というフォーラムなどにアクセスができます。
-  ![AWS マネジメントコンソールの構成](./images/28_management_console_06.png)
+  ![AWS マネジメントコンソールの構成](./images/05_07_help.png)
 7. アカウント名をクリックすると、請求情報やセキュリティ情報、アカウント情報にアクセスできます。
-  ![AWS マネジメントコンソールの構成](./images/30_management_console_08.png)
+  ![AWS マネジメントコンソールの構成](./images/05_08_account.png)
 
 <aside class="positive">アカウント 名をクリックすると、12 桁のアカウント ID が表示されますので、控えておいてください。後ほど使用します。</aside>
 
@@ -112,30 +112,29 @@ AWS のリージョンは必ず複数のデータセンタークラスタ（=AZ�
 
 [AWS グローバルインフラストラクチャマップ](https://aws.amazon.com/jp/about-aws/global-infrastructure/)
 
-![リージョンを変更](./images/74_region_az.gif)
+![リージョンを変更](./images/05_09_region_az.gif)
 
 #### リージョンを変更する (シンガポール)
 
-AWS マネジメントコンソールに初めてサインインすると、「バージニア北部」リージョンが表示されます。練習で、シンガポールリージョンに移動してみたいと思います。
+AWS マネジメントコンソールに初めてサインインすると、「**バージニア北部**」リージョンが表示されます。練習で、シンガポールリージョンに移動してみたいと思います。
 
-このリージョン名をクリックして候補から、アジアパシフィック (シンガポール) ap-southeast-1 を選択してください。
+このリージョン名をクリックして候補から、[ **アジアパシフィック (シンガポール) ap-southeast-1** ] を選択してください。
 
-![リージョンを変更](./images/70_region_change_01.png)
+![リージョンを変更](./images/05_10_region_change_us-east-1.png)
 
 #### リージョンを変更する (シドニー)
 
-画面遷移して「シンガポール」リージョンが表示されたら、次は「シドニー」リージョンに移動してみてください。「シンガポール」をクリックし、「アジアパシフィック (シドニー) ap-southeast-2」を選択してください。
+画面遷移して「シンガポール」リージョンが表示されたら、次は「シドニー」リージョンに移動してみてください。**シンガポール** をクリックし、[ **アジアパシフィック (シドニー) ap-southeast-2** ] を選択してください。
 
-![リージョンを変更](./images/71_region_change_02.png)
-
+![リージョンを変更](./images/05_11_region_change_ap-southeast-2.png)
 
 #### リージョンを変更する (東京)
 
 リージョンの移動は完璧でしょうか。
 
-それでは、本日構築する「東京」リージョンに移動してください。「シドニー」をクリックし、「アジアパシフィック (東京) ap-northeast-1」を選択してください。
+それでは、本日構築する「東京」リージョンに移動してください。「シドニー」をクリックし、[ **アジアパシフィック (東京) ap-northeast-1** ] を選択してください。
 
-![リージョンを変更](./images/72_region_change_03.png)
+![リージョンを変更](./images/05_12_region_change_tokyo.png)
 
 #### デフォルトリージョンを設定する
 
@@ -143,25 +142,55 @@ AWS マネジメントコンソールは「最後に利用したリージョン�
 
 これを変更するには、[設定] を開き、デフォルトリージョン の「最後に使用したリージョン」から希望のリージョンに変更してください。
 
-![リージョンを変更](./images/73_region_change_04.png)
+![リージョンを変更](./images/05_13_settings.png)
+
+### リージョンのオプトイン方法
+
+香港以降のリージョンは、デフォルトで無効になっておりアカウントから有効 (オプトイン) にする必要があります。
+
+右上のアカウント名をクリックして、**アカウント** を選択します。
+
+![アカウント](./images/05_14_account.png)
+
+遷移したページの中断に表示される AWS リージョンで無効のものが有効に変更できます。
+
+![AWS リージョン](./images/05_15_account_region.png)
+
+<aside class="position">デフォルトで 有効 になっているリージョンは有効にしたり無効にしたり変更ができません。</aside>
+
+アクションのカラムにある **有効化** をクリックして、
+
+![有効化](./images/05_16_region_enable.png)
+
+メッセージを確認して、[ **リージョンを有効化** ] ボタンをクリックすると有効になります。
+
+![有効化](./images/05_17_region_enable_confirm.png)
+
+逆に無効にする場合は、**無効化** をクリックして、
+
+![無効化](./images/05_18_region_disable.png)
+
+「**無効化**」と入力して、ボタンをクリックすれば無効化できます。
+
+![無効化](./images/05_19_region_disable_confirm.png)
 
 ## セキュリティ強化 - MFA
 
 AWS アカウントを契約した際のメールアドレスが、**ルートアカウント** になります。  
 ルートユーザーはアカウント内の全てのアクションを行うことができるので、アカウント内の神様とも言える権限があります。  
 
-![ハッキング](./images/05_hack.png)
+![ハッキング](./images/06_01_hack.png)
 
 本ハンズオンでは、AWS アカウントの不正アクセスやアカウント乗っ取りなどの被害を防ぐため、**多要素認証（MFA）** を必須とさせていただいております。  
 
 ユーザー名とパスワードに加えて、一時的な認証コードである MFA を合わせることでセキュリティを大幅に強化できます。
 
-![ハッキング](./images/20_user_pw_mfa.png)
+![ハッキング](./images/06_02_user_pw_mfa.png)
 
 iPhone をご利用の方は App Store で、Android をご利用の方は Google Play で「Google Authenticator」と検索してインストールしてください。
 
 #### Google Authenticator
-![Google Authenticator](./images/03_google_authenticator_icon.webp)
+![Google Authenticator](./images/06_03_google_authenticator_icon.webp)
 
 - Android の方：[Google Play](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=ja&gl=US)  
 - iPhone の方： [App Store](https://apps.apple.com/jp/app/google-authenticator/id388497605)
@@ -181,33 +210,33 @@ AWS アカウントにログインができなくなります。 </aside>
 AWS マネジメントコンソールを操作して、多要素認証を設定していきます。  
 画面の右上にあるアカウント名をクリックして、[ **セキュリティ認証情報** ] をクリックします。
 
-![パスワード入力](./images/11_security.png)
+![パスワード入力](./images/06_04_security.png)
 
 **セキュリティ認証情報** の画面に遷移するので、[ **多要素認証 (MFA)** ] にあります [ **MFA の有効化** ] ボタンをクリックしてください。
 
-![パスワード入力](./images/12_mfa.png)
+![パスワード入力](./images/06_05_mfa.png)
 
 **MFA デバイスの管理** のダイヤログ画面が表示されるので、**○ 仮想 MFA デバイス** が選択されていることを確認して、[ **続行** ] ボタンをクリックします。
 
-![パスワード入力](./images/13_virtual_mfa_device.png)
+![パスワード入力](./images/06_06_virtual_mfa_device.png)
 
 **MFA デバイスの設定** の画面に遷移するので、[ **QA コードの表示** ] というリンクをクリックしてください。  
 QR コードが表示されます。
 
-![パスワード入力](./images/14_image_click.png)
+![パスワード入力](./images/06_07_image_click.png)
 
 お手元のスマホで Google Authenticator アプリを開き QR コードを読み込んでください。  
 右下の [+] アイコンをタップして、
 
-![パスワード入力](./images/17_iphone_mfa_read.png)
+![パスワード入力](./images/06_08_iphone_mfa_read.png)
 
 [QR コードをスキャン] をタップして、
 
-![パスワード入力](./images/18_display_qr_code.png)
+![パスワード入力](./images/06_09_display_qr_code.png)
 
 スマホをパソコンの画面に表示されている QR コードに近づけて読み込んでください。ちょうど四角の部分に合わせるように読み込みます。
 
-![スマホで QR コードを読み込む](./images/35_read_mfa.png)
+![スマホで QR コードを読み込む](./images/06_10_read_mfa.png)
 
 QR コードを読み込むと、コードが表示されます。  
 Google Authenticator から発行されたコードを 2 つ入力して、[ **MFA の割り当て** ] ボタンをクリックしてください。  
@@ -216,17 +245,17 @@ Google Authenticator から発行されたコードを 2 つ入力して、[ **M
 
 <aside class="positive">連続した 2 つのコードを入力する必要があります。コードが切り替わったタイミングで入力を始めるとスムーズに進めることができます。</aside>
 
-![パスワード入力](./images/15_code_input.png)
+![パスワード入力](./images/06_11_code_input.png)
 
 以下のメッセージが表示されたら成功です。
 
-![パスワード入力](./images/16_mfa_done.png)
+![パスワード入力](./images/06_12_mfa_done.png)
 
 ## セキュリティ強化 - IAM ユーザー
 
 ### ユーザーを追加しましょう
 
-![パスワード入力](./images/19_root_iam.png)
+![パスワード入力](./images/07_01_root_iam.png)
 
 先ほど MFA を設定したルートユーザーはアカウントの神様的存在ですので、普段は使わないことがベストプラクティスとして推奨されています。  
 普段使うユーザーは IAM というサービスから作成できます。
@@ -235,7 +264,7 @@ IAM ユーザーも盗られると権限によっては大きな被害を受け�
 
 ### AWS IAM とは
 
-![IAM](./images/94_IAM.png)
+![IAM](./images/00_01_IAM.png)
 
 AWS Identity and Access Management (IAM) は、誰がどのサービスやリソースに、どのような条件でアクセスできるかを指定することができる権限コントロールのためのサービスです。  
 誰がどのような操作を行ったか証跡を取ることにも貢献します。
@@ -265,7 +294,7 @@ AWS を利用するユーザーを管理するための機能です。
 
 #### **関係性**
 
-![パスワード入力](./images/21_user_role_policy.png)
+![パスワード入力](./images/07_02_user_role_policy.png)
 
 1. ポリシー A はユーザー A にのみ適用されます。
 2. ポリシー B、C、D は、ユーザー A とユーザー B が含まれるグループに適用されます。
@@ -280,15 +309,15 @@ IAM コンソールにアクセスしてください。
 
 [https://us-east-1.console.aws.amazon.com/iamv2/home](https://us-east-1.console.aws.amazon.com/iamv2/home)
 
-![サービス検索](./images/36_iam_search.png)
+![サービス検索](./images/07_03_iam_search.png)
 
 IAM コンソールに画面が遷移したら、左側のメニューペインから **ユーザー** をクリックします。
 
-![IAM ユーザー](./images/37_iam_user.png)
+![IAM ユーザー](./images/07_04_iam_user.png)
 
 **ユーザー** の画面に遷移するので、[ **ユーザーを追加** ] ボタンをクリックします。
 
-![ユーザーを追加](./images/38_add_user_button.png)
+![ユーザーを追加](./images/07_05_add_user_button.png)
 
 ユーザー名は任意です。  
 以下のような例に従って、ユーザーを作成してください。
@@ -299,34 +328,34 @@ IAM コンソールに画面が遷移したら、左側のメニューペイン�
 **パスワード - AWS マネジメントコンソールへのアクセス** のチェックボックスにチェックを入れてください。  
 チェックを入れると、下部に **コンソールのパスワード** などが動的に表示されますが、変更せずに [ **次のステップ: アクセス権限** ] ボタンをクリックしてください。  
 
-![AWS CloudTrail](./images/39_user_add.png)
-![次のステップ: アクセス権限](./images/81_next_permission.png)
+![AWS CloudTrail](./images/07_06_user_add.png)
+![次のステップ: アクセス権限](./images/07_07_next_permission.png)
 
 **アクセス許可の設定** に画面が遷移するので、[ **既存のポリシーを直接アタッチ** ] を選択し、検索ボックスに「AdministratorAccess」と入力します。  
 [ **ENTER** ] キーを押下すると、候補に「AdministratorAccess」が表示されるので、チェックボックスにチェックを入れて、
 [ **次のステップ: タグ** ] ボタンをクリックしてください。
 
-![権限付与](./images/40_user_permission.png)
-![タグ](./images/82_next_tag.png)
+![権限付与](./images/07_08_user_permission.png)
+![タグ](./images/07_09_next_tag.png)
 
 **タグの追加 (オプション)** に画面遷移するので何も入力せずに、[ **次のステップ: 確認** ] ボタンをクリックします。  
 **確認** 画面に遷移するので、内容に不備がないか確認して [ **ユーザーの作成** ] ボタンをクリックします。
 
 <aside class="positive">AdministratorAccess とは別に、IAMUserChangePassword が付与されています。IAMUserChangePassword は IAM ユーザーがパスワードを変更できる権限です。IAM ユーザー作成時に標準で授与されます。</aside>
 
-![確認画面](./images/41_confirm.png)
-![ユーザーを作成](./images/83_user_add.png)
+![確認画面](./images/07_10_confirm.png)
+![ユーザーを作成](./images/07_11_user_add.png)
 
 ここで、必ず [ **.csv のダウンロード** ] ボタンをクリックして、認証情報をダウンロードしておいてください。  
 これがないと、ログインパスワードが分かりません。  
 
 ダウンロードができたら、[ **閉じる** ] ボタンをクリックします。
 
-![CSV をダウンロード](./images/42_csv_downloads.png)
+![CSV をダウンロード](./images/07_12_csv_downloads.png)
 
 作成したユーザー名をクリックしてください。
 
-![ユーザーリスト](./images/43_user_list.png)
+![ユーザーリスト](./images/07_13_user_list.png)
 
 ### MFA を有効化する
 
@@ -335,27 +364,27 @@ IAM コンソールに画面が遷移したら、左側のメニューペイン�
 
 [ **認証情報** ] タブを選択して、**MFA デバイスの割り当て** にある **管理** をクリックします。
 
-![ユーザーリスト](./images/44_mfa_management.png)
+![ユーザーリスト](./images/07_14_mfa_management.png)
 
 **MFA デバイスの管理** のダイヤログ画面が表示されるので、[ **仮想 MFA デバイス** ] が選択されていることを確認して、[ **続行** ] ボタンをクリックします。
 
-![パスワード入力](./images/13_virtual_mfa_device.png)
+![パスワード入力](./images/07_15_virtual_mfa_device.png)
 
 Google Authenticator アプリを開き、で読み込んでください。右下の [+] アイコンをタップして、
 
-![パスワード入力](./images/18_display_qr_code.png)
+![パスワード入力](./images/07_16_display_qr_code.png)
 
 Google Authenticator から発行されたコードを 2 つ入力して、[ **MFA の割り当て** ] ボタンをクリックしてください。  
 
-![パスワード入力](./images/15_code_input.png)
+![パスワード入力](./images/07_17_code_input.png)
 
 以下のメッセージが表示されたら成功です。
 
-![パスワード入力](./images/16_mfa_done.png)
+![パスワード入力](./images/07_18_mfa_done.png)
 
 MFA を有効化すると、以下のように MFA デバイスの割り当てが **なし** からリソース情報 (ARN といいます) に変わります。
 
-![MFA 有効済み](./images/45_MFA_enabled.png)
+![MFA 有効済み](./images/07_19_MFA_enabled.png)
 
 <aside class="positive">作成したユーザーはユーザー一覧のページから確認できます。</aside>
 
@@ -388,27 +417,27 @@ AWS マネジメントコンソールでの操作を終えたらサインアウ�
 
 <aside class="positive">アカウント ID を控えるのを忘れた方は届いたメールを確認するか、ルートアカウントでサインインして確認してください。</aside>
 
-![IAM アカウントユーザー](./images/46_IAM_account.png)
+![IAM アカウントユーザー](./images/08_01_IAM_account.png)
 
 アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、パスワードを入力してサインインしてください。
 
-![アカウント、ユーザー ID、パスワード](./images/47_acount_user_pw.png)
+![アカウント、ユーザー ID、パスワード](./images/08_02_acount_user_pw.png)
 
 <aside class="positive">ユーザー名とパスワードはダウンロードした csv ファイルに記載されています。</aside>
 
 以下の画面が表示されたらサインイン成功です。
 
-![パスワード入力](./images/10_signin_toppage.png)
+![パスワード入力](./images/08_03_signin_toppage.png)
 
 ## オプション 1 AWS CloudTrail
 
-![AWS CloudTrail](./images/90_AWS_CloudTrail.png)
+![AWS CloudTrail](./images/00_02_AWS_CloudTrail.png)
 
 ### CloudTrail の仕組み
 
 AWS の各種サービスは「マネージメントコンソール」、「AWS CLI」、「SDK」、「他AWSサービス」から操作ができますが、ほとんどは API エンドポイントへアクセスします。
 
-![API エンドポイントへアクセス](./images/31_cloudtrail_api.png)
+![API エンドポイントへアクセス](./images/10_01_cloudtrail_api.png)
 
 CloudTrail はこの AWS アカウント内で実行された API アクションを記録するサービスです。
 例えば EC2 インスタンスを削除した場合だと以下などが把握できます。
@@ -443,19 +472,19 @@ CloudTrail はアカウントを作成した直後から有効になります。
 
 [https://ap-northeast-1.console.aws.amazon.com/cloudtrail/home?region=ap-northeast-1](https://ap-northeast-1.console.aws.amazon.com/cloudtrail/home?region=ap-northeast-1)
 
-![サービス検索](./images/32_cloudtrail_search.png)
+![サービス検索](./images/10_02_cloudtrail_search.png)
 
 リージョンが東京であることを確認します。
 
-![リージョン](./images/29_management_console_07.png)
+![リージョン](./images/10_03_manecon_region.png)
 
 左側にあるドロアーメニューをクリックし、メニューを展開します。
 
-![ドロアメニュー](./images/33_cloudtrail_drawer_menu.png)
+![ドロアメニュー](./images/10_04_cloudtrail_drawer_menu.png)
 
 [ **イベント履歴** ] を表示をクリックします。
 
-![イベント履歴](./images/34_event_history.png)
+![イベント履歴](./images/10_05_event_history.png)
 
 **＜注意＞**  
 
@@ -467,18 +496,18 @@ CloudTrail はアカウントを作成した直後から有効になります。
 
 CloudTrail のコンソールに記載されている [ **証跡の作成** ] ボタンをクリックします。
 
-![イベント履歴](./images/48_cloudtrail_create.png)
+![イベント履歴](./images/10_06_cloudtrail_create.png)
 
 任意の証跡名を入力します。ここでは、management-events としています。  
 [ **新しい S3 バケットを作成します** ] が選択されていることを確認します。  
 
 **証跡ログバケットおよびフォルダ** は自動で入力されていますが、認識しやすいバケット名に変更もできます。
 
-![イベント履歴](./images/49_cloudtrail_edit.png)
+![イベント履歴](./images/10_07_cloudtrail_edit.png)
 
 ページ下部にある [ **次へ** ] ボタンをクリックします。
 
-![イベント履歴](./images/50_cloudtrail_edit2.png)
+![イベント履歴](./images/10_08_cloudtrail_edit2.png)
 
 **ログイベントの選択** 画面に遷移しますので、何も変更せずに [ **次へ** ] ボタンをクリックします。　　
 
@@ -488,12 +517,12 @@ CloudTrail のコンソールに記載されている [ **証跡の作成** ] �
 
 ## オプション 2 Budgets の設定
 
-![AWS CloudTrail](./images/91_AWS_Budgets.png)
+![AWS CloudTrail](./images/00_03_AWS_Budgets.png)
 
 AWS Budgets を設定すると、AWS の予算設定ができます。  
 例えば、事前に設定しておいた予算を超えと (あるいは超えそうになると) 通知したりできます。
 
-![アラーム通知](./images/55_alarm.png)
+![アラーム通知](./images/11_01_alarm.png)
 
 <aside class="negative">リアルタイムではなく、1 日単位での評価になるのでご注意ください。</aside>
 
@@ -505,19 +534,19 @@ AWS Budgets を設定すると、AWS の予算設定ができます。
 
 右上のアカウント名をクリックして、[ **アカウント** ] を選択します。
 
-![アカウント](./images/51_acount.png)
+![アカウント](./images/11_02_acount.png)
 
 中断にある **IAM ユーザー/ロールによる請求情報へのアクセス** にある「**編集**」ボタンをクリックします。
 
-![IAM ユーザー/ロールによる請求情報へのアクセス](./images/52_IAM_access_enable.png)
+![IAM ユーザー/ロールによる請求情報へのアクセス](./images/11_03_IAM_access_enable.png)
 
 **IAM アクセスのアクティブ化** のチェックボックスにチェックを入れます。
 
-![IAM アクセスのアクティブ化](./images/53_iam_access_active.png)
+![IAM アクセスのアクティブ化](./images/11_04_iam_access_active.png)
 
 <aside class="positive">有効になっていると、以下の通り [IAM ユーザー/ロールによる請求情報へのアクセスは有効になっています。] が表示されます。</aside>
 
-![IAM アクセスのアクティブ化](./images/54_iam_access_enabled.png)
+![IAM アクセスのアクティブ化](./images/11_05_iam_access_enabled.png)
 
 上記の設定を行なうと、IAM ユーザーに Billing / Budget 権限が有効になっている場合に請求情報へアクセスができます。
 
@@ -527,62 +556,248 @@ AWS Budgets を設定すると、AWS の予算設定ができます。
 
 左側のメニューにある Budget をクリックし、[ **予算を作成する** ] ボタンをクリックします。
 
-![Budgets メニュー](./images/56_menu_budgets.png)
+![Budgets メニュー](./images/11_06_menu_budgets.png)
 
 **予算タイプを選択** が表示されるので、**コスト予算 – 推奨** のまま、[ **次へ** ] ボタンをクリックします。
 
-![コスト予算 - 推奨](./images/57_cost_forcast.png)
+![コスト予算 - 推奨](./images/11_07_cost_forcast.png)
 
 **詳細** にある予算名に任意の名前をつけます。ここでは $20 としています。
 
-![予算名](./images/58_budget_name.png)
+![予算名](./images/11_08_budget_name.png)
 
 **予算額を設定** にある **予算額 ($) を設定してください** に 20.00 を設定します。
 
-![予算額を設定](./images/59_budget_setting.png)
+![予算額を設定](./images/11_09_budget_setting.png)
 
 [ **次へ** ] ボタンをクリックします。
 
-![次へ](./images/60_budget_next.png)
+![次へ](./images/11_10_budget_next.png)
 
 [ **アラートのしきい値を追加** ] ボタンをクリックしてください。
 
-![アラートのしきい値を追加](./images/61_set_alart_threshold.png)
+![アラートのしきい値を追加](./images/11_11_set_alart_threshold.png)
 
 以下が展開するので、しきい値を 100 にし、通知する E メールを設定します。  
 [ **次へ** ] ボタンをクリックします。
 
-![アラートのしきい値を設定](./images/62_set_alart_threshold.png)
+![アラートのしきい値を設定](./images/11_12_set_alart_threshold.png)
 
 先ほどの **Alert#1** の画面に戻るので、[ **次へ** ] ボタンをクリックします。
 
-![Alert#1](./images/63_alart1.png)
+![Alert#1](./images/11_13_alart1.png)
 
 [ **予算を作成** ] ボタンをクリックします。
 
-![Alert#1](./images/64_create_budget.png)
+![Alert#1](./images/11_14_create_budget.png)
 
 これで、$20 を超えた場合にアラート通知されるようになります。
 
 ## オプション 3 Cost Explorer の設定
 
-![AWS CloudTrail](./images/93_AWS_Cost_Explorer.png)
+![AWS CloudTrail](./images/00_04_AWS_Cost_Explorer.png)
 
 AWS Cost Explorer は AWS 料金の使用金額を確認するためのサービスです。  
 24 時間単位で、その日時点の料金が確定しますので今日のハンズオンが終わってから、明日、明後日に料金が発生していないか確認をしてください。
 
 左側のメニューペインから **Cost Explorer** をクリックし、[ **Cost Explorer を起動** ] ボタンをクリックします。
 
-![AWS CloudTrail](./images/65_cost_explrer.png)
+![AWS CloudTrail](./images/12_01_cost_explrer.png)
 
 しばらくすると以下の画面になりますので、[ **Cost Exlorer で表示** ] ボタンをクリックしてください。
 
-![AWS CloudTrail](./images/66_cost_explorer_home.png)
+![AWS CloudTrail](./images/12_02_cost_explorer_home.png)
 
 [ **自動選択:** ] から、1 月間や、過去 6 ヶ月といった期間でコストの変動を確認できます。
 また、[毎時、日別、月別] を選択してクローズアップした調査や、長期に渡っての確認が可能です。
 
-![ドロップダウンメニュー](./images/67_dropdown.png)
+![ドロップダウンメニュー](./images/12_03_dropdown.png)
+
+## オプション 4 サインインアラート の設定
+
+Amazon Event Bridge を利用することで、AWS マネジメントコンソールにサインインしたタイミングで通知することができます。  
+アカウント情報の漏洩を素早く検知できると、不正利用や身に覚えのない高額請求を防ぐことができます。
+
+ここでは、AWS マネジメントコンソールにサインインするとメール通知する仕組みを導入します。
+
+### Amazon SNS トピックを設定する
+
+![Amazon Simple Notification Service (Amazon SNS)](./images/00_05_Amazon_SNS.png)
+
+メールの通知には SNS トピックが必要です。  
+EventBridge を設定する前に、SNS トピックを設定します。  
+
+検索ボックスに SNS と入力して **Amazon Simple Notification Service** を選択するか、[こちらの URL](https://ap-northeast-1.console.aws.amazon.com/sns/v3/home) にアクセスして、SNS コンソールを開きます。
+
+![Amazon Simple Notification Service](./images/13_01_sns_search.png)
+
+東京リージョンであることを確認して、異なる場合は移動してください。
+
+![Amazon Simple Notification Service](./images/13_02_tokyo_region.png)
+
+ウェルカム画面が表示されたら、**トピック名** に任意のトピック名を入力して、[ **次のステップ** ] をクリックします。  
+ここでは、**signin-topic** にしました。  
+
+![Amazon Simple Notification Service](./images/13_03_sns_console.png)
+
+<aside class="positive">過去にトピックを作成したことがある方は、トピック から [ トピックの作成 ] ボタンをクリックして進めてください。</aside>
+
+**トピックの作成** に画面遷移するので、**タイプ** を **スタンダード** にして、**名前** に任意のトピック名が入力されているか確認します。  
+ここでは、**signin-topic** にしています。  
+
+![Amazon Simple Notification Service](./images/13_04_topic_name.png)
+
+ページ下部の [ **トピックの作成** ] ボタンをクリックします。
+
+![Amazon Simple Notification Service](./images/13_05_create_topic.png)
+
+### トピックをサブスクライブする
+
+作成したトピックをサブスクライブすることで、メール通知を受けることができます。
+
+左側のメニューから **サブスクリプション** をクリックして、[ **サブスクリプションの作成** ] ボタンをクリックします。
+
+![Amazon Simple Notification Service](./images/13_06_create_subscription.png)
+
+**トピック ARN** で先ほど作成したトピックを選択します。  
+**プロトコル** は **E メール** を選択します。  
+**エンドポイント** はご利用のメールアドレスを入力します。  
+ページ下部の [ **サブスクリプションの作成** ] ボタンをクリックします。
+
+![Amazon Simple Notification Service](./images/13_07_subscription.png)
+
+以下のようなメールが届きますので、**Confirm subscription** のリンクをクリックします。
+
+![Amazon Simple Notification Service](./images/13_07_01_email_recieve.png)
+
+以下、Subscription Confirmed! が表示されたら成功です。
+
+![Amazon Simple Notification Service](./images/13_07_02_subscription_confirmed.png)
+
+### Amazon EventBridge の設定
+
+SNS の設定ができたら、EventBridge でサインインイベントのトリガーを作成していきます。
+
+![Amazon Event Bridge](./images/00_06_Amazon_Event_Bridge.png)
+
+検索ボックスに EventBridge と入力するか、[こちらの URL](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1/) にアクセスして、EventBridge コンソールを開きます。
+
+![Amazon EventBridge](./images/13_08_eventbridge_search.png)
+
+[**ルールを作成**] ボタンをクリックして、
+
+![Amazon EventBridge](./images/13_09_create_rule.png)
+
+任意の名前を入力します。ここでは、**signin-alarm** としています。  
+[ **次へ** ] をクリックします。
+
+![Amazon EventBridge](./images/13_10_signin_alarm.png)
+
+ページが遷移したら、下部にある **イベントパターン** まで進み、**AWS のサービス** で [ **AWS コンソールのサインイン** ] を選択します。  
+**イベントタイプ** が動的に表示されるので、**サインインイベント** を選択し、**任意のユーザー** にします。  
+[ **次へ** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/13_11_event_pattern.png)
+
+**ターゲットを選択** の画面に遷移するので、[ **○ AWS のサービス** ] が選択されていることを確認して、**ターゲットを選択** から [ **SNS トピック** ] を選択し、**トピック** は先ほど作成した SNS トピック名を選択します。ここでは「**singin-topic**」を選択します。  
+[ **次へ** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/13_12_topic_name.png)
+
+**タグを設定 - オプション** の画面に遷移しますので、[ **次へ** ] ボタンをクリックします。  
+**レビューと作成** 画面に遷移しますので、内容を確認して下部の [ **ルールの作成** ] ボタンをクリックします。
+
+
+## CloudTrail を Athena で検索する
+
+オプション 1 で AWS CloudTrail に証跡を設定すると、S3 バケットにログが出力されていきます。  
+ただ、S3 バケットに保存されたファイルは .gz ファイルに圧縮されており、
+
+![Amazon EventBridge](./images/14_01_cloudtrail_trail.png)
+
+ファイルには、以下のように JSON 形式で記録されています。  
+これらのファイルを一つ一つダウンロードして確認するのは効率が悪いです。
+
+```json
+{
+    "Records": [
+        {
+            "eventVersion": "1.08",
+            "userIdentity": {
+                "type": "AWSService",
+                "invokedBy": "cloudtrail.amazonaws.com"
+            },
+            "eventTime": "2022-07-31T23:58:42Z",
+            "eventSource": "s3.amazonaws.com",
+            "eventName": "GetBucketAcl",
+            "awsRegion": "ap-northeast-1",
+            "sourceIPAddress": "cloudtrail.amazonaws.com",
+            "userAgent": "cloudtrail.amazonaws.com",
+(以下省略)
+```
+
+そこで、Amazon Ahena を利用して s3 ファイルに保存されたログを横串で検索する方法をご紹介します。
+
+CloudTrail を開き、左側のメニューから **イベント履歴** をクリックします。  
+右側にある [ **Athena テーブルを作成** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/14_02_create_Ahena_table.png)
+
+すると、**Amazon Athena でテーブルを作成** 画面に遷移します。  
+**ストレージの場所** は、先の手順で設定した証跡用のバケットを指定します。  
+[ **テーブルを作成** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/14_03_create_Athena_table.png)
+
+検索ボックスに athena と入力すると、候補に **Athena** が表示されるので、選択するか [こちら](https://ap-northeast-1.console.aws.amazon.com/athena/home?region=ap-northeast-1#/) をクリックして、Athena コンソールにアクセスします。  
+
+![Amazon EventBridge](./images/14_04_athena_search.png)
+
+左側のメニューから **クエリエディタ** をクリックすると、先ほどの CloudTrail での操作でテーブルができているのが確認できます。  
+Athena の検索結果を s3 バケットに保存できないと Athena はクエリを実行できませんので、
+
+![Amazon EventBridge](./images/14_05_athena_console.png)
+
+表示されているメッセージにある [ **設定を表示** ] ボタンをクリックします。  
+メッセージが表示されない方は [ **設定** ] タブをクリックします。
+
+![Amazon EventBridge](./images/14_06_view_setting.png)
+
+[ **管理** ] ボタンをクリックして、
+
+![Amazon EventBridge](./images/14_07_manage.png)
+
+クエリ結果の場所に先ほど作成した s3 バケットを指定します。  
+[ **保存** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/14_08_set_bucket.png)
+
+設定できると以下のようにバケットのパスが設定されます。
+
+![Amazon EventBridge](./images/14_09_settings.png)
+
+Athena を実行する準備が整いましたので、試しに以下を実行してみてください。
+
+```sql
+SELECT
+ useridentity.arn,
+ eventname,
+ sourceipaddress,
+ eventtime
+FROM <テーブルとビューのテーブルに表示されているテーブル名>
+LIMIT 100;
+```
+
+[ **実行** ] ボタンをクリックして以下のように結果が表示されれば成功です。
+
+![Amazon EventBridge](./images/14_10_query_result.png)
+
+|項目名|説明|
+|---|---|
+|arn|Amazon Resource Name (リソース名)|
+|eventname|イベント名|
+|sourceipaddress|実行元の IP アドレス|
+|eventtime|イベントの日時|
 
 ## その他 追加情報
 
