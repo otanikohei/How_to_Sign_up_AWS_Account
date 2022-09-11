@@ -192,7 +192,7 @@
         <h2 is-upgraded>ユーザーを追加しましょう</h2>
 <p class="image-container"><img alt="パスワード入力" src="img/ecdbe83cb830a706.png"></p>
 <p>先ほど MFA を設定したルートユーザーはアカウントの神様的存在ですので、普段は使わないことがベストプラクティスとして推奨されています。<br> 普段使うユーザーは IAM というサービスから作成できます。</p>
-<p>IAM ユーザーも盗られると権限によっては大きな被害を受けますので、MFA を設定してください。</p>
+<p>IAM ユーザーも漏洩して不正利用されると権限によっては大きな被害を受けますので、MFA を設定してください。</p>
 <h2 is-upgraded>AWS IAM とは</h2>
 <p class="image-container"><img alt="IAM" src="img/13e48a597f9c9fc4.png"></p>
 <p>AWS Identity and Access Management (IAM) は、誰がどのサービスやリソースに、どのような条件でアクセスできるかを指定することができる権限コントロールのためのサービスです。<br> 誰がどのような操作を行ったか証跡を取ることにも貢献します。</p>
@@ -330,7 +330,9 @@
 <p><strong>証跡ログバケットおよびフォルダ</strong> は自動で入力されていますが、認識しやすいバケット名に変更もできます。</p>
 <aside class="special"><p> 後ほど、Athena の手順で使用するので、S3 バケット名を控えておいてください。</p>
 </aside>
-<p class="image-container"><img alt="イベント履歴" src="img/77188e8ec3ed6632.png"></p>
+<aside class="special"><p> ログファイルの SSE-KMS 暗号化のチェックボックスのチェックは、このハンズオンでは外しておいてください。</p>
+</aside>
+<p class="image-container"><img alt="イベント履歴" src="img/ec8a7189d0115e9e.png"></p>
 <p>ページ下部にある [ <strong>次へ</strong> ] ボタンをクリックします。</p>
 <p class="image-container"><img alt="イベント履歴" src="img/d258e9bb9974f19b.png"></p>
 <p><strong>ログイベントの選択</strong> 画面に遷移しますので、何も変更せずに [ <strong>次へ</strong> ] ボタンをクリックします。　　</p>
