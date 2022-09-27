@@ -272,7 +272,7 @@
 <p>以下 URL にアクセスするか、表示されているようであれば [もう一度ログインする] ボタンをクリックしてください。</p>
 <p><a href="https://signin.aws.amazon.com/console" target="_blank">https://signin.aws.amazon.com/console</a></p>
 <p>以下の画面に遷移しますので、[ <strong>○ IAM ユーザー</strong> ] が選択されていることを確認し、<strong>アカウント ID (12 桁)　またはアカウントエイリアス</strong> にアカウント ID を入力して、[ <strong>次へ</strong> ] ボタンをクリックしてください。</p>
-<aside class="special"><p>アカウント ID を控えるのを忘れた方は届いたメールを確認するか、ルートアカウントでサインインして確認してください。</p>
+<aside class="special"><p>アカウント ID を控えるのを忘れた方は届いたメールを確認するか、ルートアカウントでサインインして確認してください。初回はパスワード変更が求められるので、新しいパスワードを設定してください。</p>
 </aside>
 <p class="image-container"><img alt="IAM アカウントユーザー" src="img/c262338d9696d60c.png"></p>
 <p>アカウント ID、ユーザー名、パスワードを入力する画面に遷移しますので、それぞれを入力してサインインしてください。</p>
@@ -321,8 +321,10 @@
 <li>90 日分以上履歴を残したい場合は、以降の作業が必要です。</li>
 </ul>
 <h2 is-upgraded>証跡の作成</h2>
-<p>CloudTrail のコンソールに記載されている [ <strong>証跡の作成</strong> ] ボタンをクリックします。</p>
-<p class="image-container"><img alt="イベント履歴" src="img/38f62dc7c1f9c4a5.png"></p>
+<p>CloudTrail の左側にあるドロアーメニューをクリックし、メニューを展開します。</p>
+<p class="image-container"><img alt="ドロアメニュー" src="img/82c8fa3dc975c376.png"></p>
+<p>メニューにある <strong>証跡</strong> のリンクをクリックして、表示された [ <strong>証跡の作成</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="イベント履歴" src="img/bf9c4c40075fdb80.png"></p>
 <p>任意の証跡名を入力します。ここでは、management-events としています。<br> [ <strong>新しい S3 バケットを作成します</strong> ] が選択されていることを確認します。</p>
 <p class="image-container"><img alt="Amazon EventBridge" src="img/a6425b988556b504.png"></p>
 <aside class="special"><p> Amazon S3 は定価コストで大量のデータを保存するのに適した AWS のオブジェクトストレージです。</p>
