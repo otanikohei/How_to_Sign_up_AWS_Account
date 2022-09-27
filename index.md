@@ -643,9 +643,9 @@ EventBridge を設定する前に、SNS トピックを設定します。
 
 ![Amazon Simple Notification Service](./images/13_01_sns_search.png)
 
-**バージニア北部リージョン** であることを確認して、異なる場合は移動してください。
+**東京リージョン** であることを確認して、異なる場合は移動してください。
 
-<aside class="positive">サインイン情報はバージニアリージョンに記録されます。</aside>
+<aside class="positive">サインイン情報はリージョンごとに記録されます。本手順はリージョンごとに設定が必要です。</aside>
 
 ![Amazon Simple Notification Service](./images/13_02_tokyo_region.png)
 
@@ -698,9 +698,9 @@ SNS の設定ができたら、EventBridge でサインインイベントのト�
 
 ![Amazon EventBridge](./images/13_08_eventbridge_search.png)
 
-**バージニア北部** リージョンであることを確認してください。
+**東京** リージョンであることを確認してください。
 
-<aside class="positive">サインイン情報はバージニアリージョンに記録されます。</aside>
+<aside class="positive">サインイン情報はリージョンごとに記録されます。</aside>
 
 ![Amazon EventBridge](./images/13_07_2_eventbridge_region.png)
 
