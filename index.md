@@ -647,7 +647,7 @@ EventBridge を設定する前に、SNS トピックを設定します。
 
 ![Amazon Simple Notification Service](./images/13_01_sns_search.png)
 
-**東京リージョン** であることを確認して、異なる場合は移動してください。
+**バージニア北部リージョン** であることを確認して、異なる場合は移動してください。
 
 <aside class="positive">サインイン情報はリージョンごとに記録されます。本手順はリージョンごとに設定が必要です。</aside>
 
