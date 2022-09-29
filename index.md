@@ -872,8 +872,8 @@ LIMIT 100;
 |eventtime|イベントの日時|
 
 ## あと片付け
-本手順で行った作業はアカウントを利用する上で、設定しておくべき事項ばかりですので削除は任意です。  
-ここでは、Athena の結果用に作成した S3 バケットと、サインインアラートの削除情報をご紹介しておきます。
+ここまで行ってきた作業は、アカウントを利用する上で設定しておくべき事項ばかりですので、削除は任意です。  
+参考情報として、Athena の結果用に作成した S3 バケットと、サインインアラートの削除情報をご紹介しておきます。
 
 ### Athena 用の S3 バケットを削除する
 
@@ -915,7 +915,7 @@ s3 バケットの設定を解除すると、以下のメッセージが表示�
 
 ![Amazon EventBridge](./images/15_11_warning.png)
 
-#### s3 バケットを削除します。  
+#### s3 バケットの削除  
 
 [こちら](https://s3.console.aws.amazon.com/s3/buckets?region=ap-northeast-1) から S3 コンソールにアクセスして、該当のバケットを選択します。
 
@@ -942,7 +942,7 @@ s3 バケットの設定を解除すると、以下のメッセージが表示�
 
 ![Amazon EventBridge](./images/15_21_select_topic.png)
 
-<aside class="positive">ここでは、トピックの数が 2 が表示されていますが、本手順通り進めた場合は 1 になります。</aside>
+<aside class="positive">画像はトピックの数が 2 と表示されていますが、本手順通りに進めた場合は 1 になります。</aside>
 
 ![Amazon EventBridge](./images/15_21_select_topic.png)
 
