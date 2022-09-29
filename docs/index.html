@@ -408,8 +408,12 @@
       </google-codelab-step>
     
       <google-codelab-step label="オプション 4 サインインアラート の設定" duration="0">
-        <p>Amazon Event Bridge を利用することで、AWS マネジメントコンソールにサインインしたタイミングで通知することができます。<br> アカウント情報の漏洩を素早く検知できると、不正利用や身に覚えのない高額請求を防ぐことができます。</p>
+        <p>AWS CloudTrail と Amazon Event Bridge、Amazon Simple Notification Service を <strong>連携</strong> して利用することで、AWS マネジメントコンソールにサインインしたタイミングで通知することができます。<br> アカウント情報の漏洩を素早く検知できると、不正利用や身に覚えのない高額請求を防ぐことができます。</p>
 <p>ここでは、AWS マネジメントコンソールにサインインするとメール通知する仕組みを導入します。</p>
+<h2 is-upgraded>座学</h2>
+<p>「<strong>連携</strong>」部分をご説明します。<br> まず、ユーザーがサインインすると、裏側で「<strong>サインインの API コール</strong>」が発生します。<br> そして、API のイベント履歴が CloudTrail に記録されます。<br> EventBridge は、CloudTrail のサインインイベントをトリガーに SNS トピックを立てることができます。<br> SNS トピックは、メールや Slack、アプリケーションを組めば Twitter などさまざまな形式でサブスクライブ (購読) できます。</p>
+<p>上記のサービスがピタゴラスイッチのように組み合わさった結果、サインインするとメール通知される仕組みができます。</p>
+<p class="image-container"><img alt="Amazon Simple Notification Service (Amazon SNS)" src="img/47d7e5d0863d9f20.png"></p>
 <h2 is-upgraded>Amazon SNS トピックを設定する</h2>
 <p class="image-container"><img alt="Amazon Simple Notification Service (Amazon SNS)" src="img/2f5d97ebfbd88564.png"></p>
 <p>メールの通知には SNS トピックが必要です。<br> EventBridge を設定する前に、SNS トピックを設定します。</p>
@@ -542,6 +546,58 @@ LIMIT 100;
 </td><td colspan="1" rowspan="1"><p>イベントの日時</p>
 </td></tr>
 </table>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="あと片付け" duration="0">
+        <p>本手順で行った作業はアカウントを利用する上で、設定しておくべき事項ばかりですので削除は任意です。<br> Athena の結果用に作成した S3 バケットと、サインインアラートの削除情報をご紹介しておきます。</p>
+<h2 is-upgraded>Athena 用の S3 バケットを削除する</h2>
+<p>先の手順にて、Amazon Athena で実行したクエリの結果を保存するために S3 バケットを作成して設定しました。<br> このバケットを削除するのですが、その前にまず Athena コンソールからテーブルを削除したり、設定からバケットを解除したりしていきます。</p>
+<p><a href="https://ap-northeast-1.console.aws.amazon.com/athena/home?region=ap-northeast-1#/query-editor" target="_blank">こちら</a> から Athena コンソールを開き、左側のメニューペインから、クエリエディタをクリックして、[ <strong>エディタ</strong> ]タブを選択します。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/75ba3c63e6cbd21a.png"></p>
+<p>開いているクエリをクエリ名の右側にある [x] アイコンをクリックして閉じます。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/3afcb5c86dc7e867.png"></p>
+<p>確認メッセージが表示されるので、[ <strong>クエリを閉じる</strong> ] ボタンをクリックして閉じます。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/8e9864bab820249b.png"></p>
+<p>テーブル名の右側にあるオプションボタン (縦に 3 つ ・・・ と並んでいるアイコンです) をクリックして、<strong>テーブルを削除</strong> を選択してください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/2b543275b029bfbe.png"></p>
+<p>確認画面が表示されるので、テーブル名を入力して、[ <strong>削除する</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/ccc1815e3bf230ba.png"></p>
+<p>次に [ <strong>設定</strong> ] タブをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/4b6c6dcb2c47ab1c.png"></p>
+<p>もし先に S3 バケットを削除した方は、以下のようなメッセージが表示されます。<br> 気にせずに S3 バケット名の右側にある [x] アイコンをクリックして、バケットの紐付けを解除し、[ <strong>保存</strong> ] ボタンをクリックしてください。</p>
+<aside class="warning"><p>選択されたバケットが現在のリージョンに属しているかどうか確認できません。</p>
+</aside>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/9453e62879b6c0ba.png"></p>
+<p>s3 バケットの設定を解除すると、以下のメッセージが表示されて Athena が操作できなくなるため、本手順の順番で進めていただくとスムーズです。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/1cdf51d5a00c4850.png"></p>
+<h3 is-upgraded>s3 バケットを削除します。</h3>
+<p><a href="https://s3.console.aws.amazon.com/s3/buckets?region=ap-northeast-1" target="_blank">こちら</a> から S3 コンソールにアクセスして、該当のバケットを選択します。</p>
+<p>先の手順で作成した <strong>handson-athena-result-＜お名前＞</strong> のバケットを選択し、[ <strong>空にする</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/a7a835a309c6ac9d.png"></p>
+<p>確認メッセージが表示されるので、「<strong>完全に削除</strong>」と入力して [ <strong>空にする</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/508355e96735f460.png"></p>
+<p>再度バケットを選択して、[ <strong>削除</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/f3d922530ab067a7.png"></p>
+<h2 is-upgraded>サインインアラートの解除手順</h2>
+<p>サインインアラートも不要であれば解除してください。</p>
+<h3 is-upgraded>SNS トピックの削除</h3>
+<p><a href="https://us-east-1.console.aws.amazon.com/sns/v3/home?region=us-east-1#/topic/" target="_blank">こちら</a> からバージニア北部の SNS トピックにアクセスしてください。<br> 画面遷移したら、対象のトピック「signin-topic」を選択してください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/e832c54b9074d3d7.png"></p>
+<aside class="special"><p>ここでは、トピックの数が 2 が表示されていますが、本手順通り進めた場合は 1 になります。</p>
+</aside>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/e832c54b9074d3d7.png"></p>
+<p>右側にある [ <strong>削除</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/82c769e39b5f9edf.png"></p>
+<p>確認メッセージが表示されるので「これを削除」と入力し、[ <strong>削除</strong> ] ボタンをクリックしてください。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/3860a79addc99f4a.png"></p>
+<h3 is-upgraded>EventBridge のルールを削除</h3>
+<p>EventBridge を削除します。<a href="https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/rules" target="_blank">こちら</a> をクリックし、バージニア北部の EventBridge ルールを開きます。</p>
+<p>ルールが選択されていることを確認し、<strong>signin-alarm</strong> を選択して、[ <strong>削除</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/33c7b0362f974154.png"></p>
+<p>確認メッセージが表示されるので、「signin-alarm」を入力して、[ <strong>削除</strong> ] ボタンをクリックします。</p>
+<p class="image-container"><img alt="Amazon EventBridge" src="img/77f20502df2bd0d8.png"></p>
 
 
       </google-codelab-step>

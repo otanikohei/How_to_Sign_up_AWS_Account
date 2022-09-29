@@ -631,10 +631,22 @@ AWS Cost Explorer は AWS 料金の使用金額を確認するためのサービ
 
 ## オプション 4 サインインアラート の設定
 
-Amazon Event Bridge を利用することで、AWS マネジメントコンソールにサインインしたタイミングで通知することができます。  
+AWS CloudTrail と Amazon Event Bridge、Amazon Simple Notification Service を **連携** して利用することで、AWS マネジメントコンソールにサインインしたタイミングで通知することができます。  
 アカウント情報の漏洩を素早く検知できると、不正利用や身に覚えのない高額請求を防ぐことができます。
 
 ここでは、AWS マネジメントコンソールにサインインするとメール通知する仕組みを導入します。
+
+### 座学
+
+「**連携**」部分をご説明します。  
+まず、ユーザーがサインインすると、裏側で「**サインインの API コール**」が発生します。  
+そして、API のイベント履歴が CloudTrail に記録されます。  
+EventBridge は、CloudTrail のサインインイベントをトリガーに SNS トピックを立てることができます。  
+SNS トピックは、メールや Slack、アプリケーションを組めば Twitter などさまざまな形式でサブスクライブ (購読) できます。  
+
+上記のサービスがピタゴラスイッチのように組み合わさった結果、サインインするとメール通知される仕組みができます。
+
+![Amazon Simple Notification Service (Amazon SNS)](./images/00_05_Amazon_SNS_description.png)
 
 ### Amazon SNS トピックを設定する
 
@@ -858,6 +870,101 @@ LIMIT 100;
 |eventname|イベント名|
 |sourceipaddress|実行元の IP アドレス|
 |eventtime|イベントの日時|
+
+## あと片付け
+本手順で行った作業はアカウントを利用する上で、設定しておくべき事項ばかりですので削除は任意です。  
+ここでは、Athena の結果用に作成した S3 バケットと、サインインアラートの削除情報をご紹介しておきます。
+
+### Athena 用の S3 バケットを削除する
+
+先の手順にて、Amazon Athena で実行したクエリの結果を保存するために S3 バケットを作成して設定しました。  
+このバケットを削除するのですが、その前にまず Athena コンソールからテーブルを削除したり、設定からバケットを解除したりしていきます。
+
+[こちら](https://ap-northeast-1.console.aws.amazon.com/athena/home?region=ap-northeast-1#/query-editor) から Athena コンソールを開き、左側のメニューペインから、クエリエディタをクリックして、[ **エディタ** ]タブを選択します。
+
+![Amazon EventBridge](./images/15_01_athena_menu.png)
+
+開いているクエリをクエリ名の右側にある [x] アイコンをクリックして閉じます。  
+
+![Amazon EventBridge](./images/15_02_close_query.png)
+
+確認メッセージが表示されるので、[ **クエリを閉じる** ] ボタンをクリックして閉じます。
+
+![Amazon EventBridge](./images/15_03_confirm_close_query.png)
+
+テーブル名の右側にあるオプションボタン (縦に 3 つ ・・・ と並んでいるアイコンです) をクリックして、**テーブルを削除** を選択してください。
+
+![Amazon EventBridge](./images/15_04_athena_table_delete.png)
+
+確認画面が表示されるので、テーブル名を入力して、[ **削除する** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/15_05_confirm_table_delete.png)
+
+次に [ **設定** ] タブをクリックします。
+
+![Amazon EventBridge](./images/15_06_athena_settings.png)
+
+もし先に S3 バケットを削除した方は、以下のようなメッセージが表示されます。  
+気にせずに S3 バケット名の右側にある [x] アイコンをクリックして、バケットの紐付けを解除し、[ **保存** ] ボタンをクリックしてください。
+
+<aside class="negative">選択されたバケットが現在のリージョンに属しているかどうか確認できません。</aside>
+
+![Amazon EventBridge](./images/15_07_athena_settings_remove.png)
+
+s3 バケットの設定を解除すると、以下のメッセージが表示されて Athena が操作できなくなるため、本手順の順番で進めていただくとスムーズです。
+
+![Amazon EventBridge](./images/15_11_warning.png)
+
+#### s3 バケットを削除します。  
+
+[こちら](https://s3.console.aws.amazon.com/s3/buckets?region=ap-northeast-1) から S3 コンソールにアクセスして、該当のバケットを選択します。
+
+先の手順で作成した **handson-athena-result-＜お名前＞** のバケットを選択し、[ **空にする** ] ボタンをクリックしてください。
+
+![Amazon EventBridge](./images/15_08_empty.png)
+
+確認メッセージが表示されるので、「**完全に削除**」と入力して [ **空にする** ] ボタンをクリックしてください。
+
+![Amazon EventBridge](./images/15_09_confirm_empty.png)
+
+再度バケットを選択して、[ **削除** ] ボタンをクリックしてください。
+
+![Amazon EventBridge](./images/15_10_delete_bucket.png)
+
+### サインインアラートの解除手順
+
+サインインアラートも不要であれば解除してください。  
+
+#### SNS トピックの削除
+
+[こちら](https://us-east-1.console.aws.amazon.com/sns/v3/home?region=us-east-1#/topic/) からバージニア北部の SNS トピックにアクセスしてください。  
+画面遷移したら、対象のトピック「signin-topic」を選択してください。
+
+![Amazon EventBridge](./images/15_21_select_topic.png)
+
+<aside class="positive">ここでは、トピックの数が 2 が表示されていますが、本手順通り進めた場合は 1 になります。</aside>
+
+![Amazon EventBridge](./images/15_21_select_topic.png)
+
+右側にある [ **削除** ] ボタンをクリックしてください。
+
+![Amazon EventBridge](./images/15_22_delete_siginin_topic.png)
+
+確認メッセージが表示されるので「これを削除」と入力し、[ **削除** ] ボタンをクリックしてください。
+
+![Amazon EventBridge](./images/15_23_confirm_delete.png)
+
+#### EventBridge のルールを削除
+
+EventBridge を削除します。[こちら](https://us-east-1.console.aws.amazon.com/events/home?region=us-east-1#/rules) をクリックし、バージニア北部の EventBridge ルールを開きます。
+
+ルールが選択されていることを確認し、**signin-alarm** を選択して、[ **削除** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/15_24_eventbridge_rules.png)
+
+確認メッセージが表示されるので、「signin-alarm」を入力して、[ **削除** ] ボタンをクリックします。
+
+![Amazon EventBridge](./images/15_25_confirm_delete.png)
 
 ## その他 追加情報
 
