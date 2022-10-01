@@ -52,6 +52,10 @@ Amazon Web Services (AWS) を利用するには、AWS アカウントの契約�
 
 [https://aws.amazon.com/jp/register-flow/](https://aws.amazon.com/jp/register-flow/)
 
+<aside >手順にある ③ 「AWS アカウント名」はアカウントにサインインした後に、画面右上の表示名です。後から変更することができます。</aside>
+
+![AWS マネジメントコンソールの構成](./images/05_08_account.png)
+
 ## サインイン
 
 アカウントができたらサインインしてみましょう。  
@@ -663,8 +667,6 @@ EventBridge を設定する前に、SNS トピックを設定します。
 
 <aside class="positive">サインイン情報はリージョンごとに記録されます。本手順はリージョンごとに設定が必要です。</aside>
 
-![Amazon Simple Notification Service](./images/13_02_tokyo_region.png)
-
 ウェルカム画面が表示されたら、**トピック名** に任意のトピック名を入力して、[ **次のステップ** ] をクリックします。  
 ここでは、**signin-topic** にしました。  
 
@@ -714,7 +716,7 @@ SNS の設定ができたら、EventBridge でサインインイベントのト�
 
 ![Amazon EventBridge](./images/13_08_eventbridge_search.png)
 
-**東京** リージョンであることを確認してください。
+**バージニア北部** リージョンであることを確認してください。
 
 <aside class="positive">サインイン情報はリージョンごとに記録されます。</aside>
 
