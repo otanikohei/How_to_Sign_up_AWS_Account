@@ -1,9 +1,11 @@
+authors: 尾谷 紘平, 織田 繁
 summary: AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 2022
 id: docs
 categories: AWS, Acount, Registration
 environments: Web
 status: Draft
 feedback link: https://github.com/otanikohei/How_to_Sign_up_AWS_Account/settings
+analytics account: G-BNG5XQXYHQ
 
 # AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 ２０２２
 

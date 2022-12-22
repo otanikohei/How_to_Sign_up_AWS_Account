@@ -3,12 +3,12 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-10-01T15:16:32+09:00",
+  "updated": "2022-12-22T23:49:49+09:00",
   "id": "docs",
   "duration": 5,
   "title": "AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 ２０２２",
   "summary": "AWSアカウントを作成してみよう～ Presented by JAWS-UG 初心者支部 2022",
-  "source": "./index.md",
+  "source": "index.md",
   "theme": "",
   "status": [
     "draft"
